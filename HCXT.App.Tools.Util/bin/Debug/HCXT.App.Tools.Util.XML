@@ -89,13 +89,14 @@
             <param name="encodingName"> </param>
             <returns></returns>
         </member>
-        <member name="M:HCXT.App.Tools.Util.FrmMain.GetSha1(System.String,System.Boolean,System.String)">
+        <member name="M:HCXT.App.Tools.Util.FrmMain.GetSha1(System.String,System.Boolean,System.String,System.String)">
             <summary>
             获取指定字符串的SHA1编码散列字符串
             </summary>
             <param name="inputString">指定字符串</param>
             <param name="isFile"> </param>
             <param name="encodingName"> </param>
+            <param name="shaType">SHA算法，其值可以是：SHA1、SHA256、SHA384、SHA512</param>
             <returns></returns>
         </member>
         <member name="M:HCXT.App.Tools.Util.FrmMain.Trap(System.IO.Stream,System.IO.Stream,System.Byte[],System.Int32)">

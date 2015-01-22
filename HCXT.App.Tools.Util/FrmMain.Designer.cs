@@ -135,6 +135,17 @@
             this.txtGUIDResult = new System.Windows.Forms.TextBox();
             this.butGetGUID = new System.Windows.Forms.Button();
             this.tcMain = new System.Windows.Forms.TabControl();
+            this.tpSHA1 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
+            this.radSha1Txt = new System.Windows.Forms.RadioButton();
+            this.radSha1File = new System.Windows.Forms.RadioButton();
+            this.txtSha1Src = new System.Windows.Forms.TextBox();
+            this.txtSha1SrcFile = new System.Windows.Forms.TextBox();
+            this.butSha1Browse = new System.Windows.Forms.Button();
+            this.cbSha1EncodingName = new System.Windows.Forms.ComboBox();
+            this.butSha1 = new System.Windows.Forms.Button();
+            this.label38 = new System.Windows.Forms.Label();
+            this.txtSha1 = new System.Windows.Forms.TextBox();
             this.tpReplace = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.label25 = new System.Windows.Forms.Label();
@@ -169,17 +180,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tpSHA1 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
-            this.radSha1Txt = new System.Windows.Forms.RadioButton();
-            this.radSha1File = new System.Windows.Forms.RadioButton();
-            this.txtSha1Src = new System.Windows.Forms.TextBox();
-            this.txtSha1SrcFile = new System.Windows.Forms.TextBox();
-            this.butSha1Browse = new System.Windows.Forms.Button();
-            this.cbSha1EncodingName = new System.Windows.Forms.ComboBox();
-            this.butSha1 = new System.Windows.Forms.Button();
-            this.label38 = new System.Windows.Forms.Label();
-            this.txtSha1 = new System.Windows.Forms.TextBox();
+            this.cbSha1Type = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
@@ -209,14 +210,14 @@
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudGUIDCount)).BeginInit();
             this.tcMain.SuspendLayout();
+            this.tpSHA1.SuspendLayout();
+            this.tableLayoutPanel26.SuspendLayout();
             this.tpReplace.SuspendLayout();
             this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel22.SuspendLayout();
             this.tableLayoutPanel23.SuspendLayout();
             this.tpEncodingTrans.SuspendLayout();
             this.tableLayoutPanel25.SuspendLayout();
-            this.tpSHA1.SuspendLayout();
-            this.tableLayoutPanel26.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -774,7 +775,7 @@
             this.tpDes.Location = new System.Drawing.Point(4, 22);
             this.tpDes.Name = "tpDes";
             this.tpDes.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDes.Size = new System.Drawing.Size(640, 316);
+            this.tpDes.Size = new System.Drawing.Size(640, 320);
             this.tpDes.TabIndex = 4;
             this.tpDes.Text = "DES加密";
             this.tpDes.UseVisualStyleBackColor = true;
@@ -803,19 +804,19 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(634, 310);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(634, 314);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // txtDesObj
             // 
             this.txtDesObj.AllowDrop = true;
             this.txtDesObj.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDesObj.Location = new System.Drawing.Point(123, 203);
+            this.txtDesObj.Location = new System.Drawing.Point(123, 205);
             this.txtDesObj.MaxLength = 0;
             this.txtDesObj.Multiline = true;
             this.txtDesObj.Name = "txtDesObj";
             this.txtDesObj.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDesObj.Size = new System.Drawing.Size(508, 104);
+            this.txtDesObj.Size = new System.Drawing.Size(508, 106);
             this.txtDesObj.TabIndex = 4;
             // 
             // txtDesSrc
@@ -827,7 +828,7 @@
             this.txtDesSrc.Multiline = true;
             this.txtDesSrc.Name = "txtDesSrc";
             this.txtDesSrc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDesSrc.Size = new System.Drawing.Size(508, 104);
+            this.txtDesSrc.Size = new System.Drawing.Size(508, 106);
             this.txtDesSrc.TabIndex = 3;
             // 
             // tableLayoutPanel9
@@ -843,7 +844,7 @@
             this.tableLayoutPanel9.Controls.Add(this.radDesHex, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.butDesEncode, 2, 0);
             this.tableLayoutPanel9.Controls.Add(this.butDesDecode, 3, 0);
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(155, 170);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(155, 172);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
@@ -901,7 +902,7 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(76, 249);
+            this.label10.Location = new System.Drawing.Point(76, 252);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 12);
             this.label10.TabIndex = 7;
@@ -911,7 +912,7 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(76, 119);
+            this.label11.Location = new System.Drawing.Point(76, 121);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 12);
             this.label11.TabIndex = 6;
@@ -921,7 +922,7 @@
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(76, 149);
+            this.label12.Location = new System.Drawing.Point(76, 151);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 12);
             this.label12.TabIndex = 6;
@@ -940,7 +941,7 @@
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(120, 110);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(120, 112);
             this.tableLayoutPanel11.TabIndex = 10;
             // 
             // cbDesEncodingName
@@ -952,7 +953,7 @@
             "us-ascii",
             "gb2312",
             "GB18030"});
-            this.cbDesEncodingName.Location = new System.Drawing.Point(43, 58);
+            this.cbDesEncodingName.Location = new System.Drawing.Point(43, 59);
             this.cbDesEncodingName.Name = "cbDesEncodingName";
             this.cbDesEncodingName.Size = new System.Drawing.Size(74, 20);
             this.cbDesEncodingName.TabIndex = 8;
@@ -961,7 +962,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(76, 43);
+            this.label9.Location = new System.Drawing.Point(76, 44);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(41, 12);
             this.label9.TabIndex = 7;
@@ -975,7 +976,7 @@
             this.tableLayoutPanel17.Controls.Add(this.label21, 1, 0);
             this.tableLayoutPanel17.Controls.Add(this.txtDesKey, 0, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(120, 110);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(120, 112);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 1;
@@ -1010,7 +1011,7 @@
             this.tableLayoutPanel18.Controls.Add(this.label22, 1, 0);
             this.tableLayoutPanel18.Controls.Add(this.txtDesVI, 0, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(120, 140);
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(120, 142);
             this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
             this.tableLayoutPanel18.RowCount = 1;
@@ -1420,7 +1421,7 @@
             this.tpGetGUID.Location = new System.Drawing.Point(4, 22);
             this.tpGetGUID.Name = "tpGetGUID";
             this.tpGetGUID.Padding = new System.Windows.Forms.Padding(3);
-            this.tpGetGUID.Size = new System.Drawing.Size(640, 316);
+            this.tpGetGUID.Size = new System.Drawing.Size(640, 320);
             this.tpGetGUID.TabIndex = 0;
             this.tpGetGUID.Text = "生成GUID";
             this.tpGetGUID.UseVisualStyleBackColor = true;
@@ -1445,7 +1446,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(634, 310);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(634, 314);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -1472,7 +1473,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(88, 164);
+            this.label3.Location = new System.Drawing.Point(88, 166);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 2;
@@ -1549,14 +1550,14 @@
             this.txtGUIDResult.Multiline = true;
             this.txtGUIDResult.Name = "txtGUIDResult";
             this.txtGUIDResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtGUIDResult.Size = new System.Drawing.Size(508, 214);
+            this.txtGUIDResult.Size = new System.Drawing.Size(508, 218);
             this.txtGUIDResult.TabIndex = 5;
             // 
             // butGetGUID
             // 
             this.butGetGUID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.SetColumnSpan(this.butGetGUID, 2);
-            this.butGetGUID.Location = new System.Drawing.Point(279, 283);
+            this.butGetGUID.Location = new System.Drawing.Point(279, 287);
             this.butGetGUID.Name = "butGetGUID";
             this.butGetGUID.Size = new System.Drawing.Size(75, 23);
             this.butGetGUID.TabIndex = 6;
@@ -1580,8 +1581,149 @@
             this.tcMain.Location = new System.Drawing.Point(0, 0);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(648, 342);
+            this.tcMain.Size = new System.Drawing.Size(648, 346);
             this.tcMain.TabIndex = 0;
+            // 
+            // tpSHA1
+            // 
+            this.tpSHA1.Controls.Add(this.tableLayoutPanel26);
+            this.tpSHA1.Location = new System.Drawing.Point(4, 22);
+            this.tpSHA1.Name = "tpSHA1";
+            this.tpSHA1.Size = new System.Drawing.Size(640, 320);
+            this.tpSHA1.TabIndex = 9;
+            this.tpSHA1.Text = "生成SHA1";
+            this.tpSHA1.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel26
+            // 
+            this.tableLayoutPanel26.ColumnCount = 3;
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel26.Controls.Add(this.radSha1Txt, 0, 0);
+            this.tableLayoutPanel26.Controls.Add(this.radSha1File, 0, 1);
+            this.tableLayoutPanel26.Controls.Add(this.txtSha1Src, 1, 0);
+            this.tableLayoutPanel26.Controls.Add(this.txtSha1SrcFile, 1, 1);
+            this.tableLayoutPanel26.Controls.Add(this.butSha1Browse, 2, 1);
+            this.tableLayoutPanel26.Controls.Add(this.cbSha1EncodingName, 0, 2);
+            this.tableLayoutPanel26.Controls.Add(this.label38, 0, 3);
+            this.tableLayoutPanel26.Controls.Add(this.txtSha1, 1, 3);
+            this.tableLayoutPanel26.Controls.Add(this.butSha1, 1, 2);
+            this.tableLayoutPanel26.Controls.Add(this.cbSha1Type, 2, 2);
+            this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel26.Name = "tableLayoutPanel26";
+            this.tableLayoutPanel26.RowCount = 4;
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(640, 320);
+            this.tableLayoutPanel26.TabIndex = 0;
+            // 
+            // radSha1Txt
+            // 
+            this.radSha1Txt.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.radSha1Txt.AutoSize = true;
+            this.radSha1Txt.Checked = true;
+            this.radSha1Txt.Location = new System.Drawing.Point(18, 92);
+            this.radSha1Txt.Name = "radSha1Txt";
+            this.radSha1Txt.Size = new System.Drawing.Size(59, 16);
+            this.radSha1Txt.TabIndex = 0;
+            this.radSha1Txt.TabStop = true;
+            this.radSha1Txt.Text = "源文本";
+            this.radSha1Txt.UseVisualStyleBackColor = true;
+            this.radSha1Txt.CheckedChanged += new System.EventHandler(this.RadSha1CheckedChanged);
+            // 
+            // radSha1File
+            // 
+            this.radSha1File.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.radSha1File.AutoSize = true;
+            this.radSha1File.Location = new System.Drawing.Point(18, 207);
+            this.radSha1File.Name = "radSha1File";
+            this.radSha1File.Size = new System.Drawing.Size(59, 16);
+            this.radSha1File.TabIndex = 1;
+            this.radSha1File.Text = "源文件";
+            this.radSha1File.UseVisualStyleBackColor = true;
+            this.radSha1File.CheckedChanged += new System.EventHandler(this.RadSha1CheckedChanged);
+            // 
+            // txtSha1Src
+            // 
+            this.tableLayoutPanel26.SetColumnSpan(this.txtSha1Src, 2);
+            this.txtSha1Src.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSha1Src.Location = new System.Drawing.Point(83, 3);
+            this.txtSha1Src.MaxLength = 2147483647;
+            this.txtSha1Src.Multiline = true;
+            this.txtSha1Src.Name = "txtSha1Src";
+            this.txtSha1Src.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtSha1Src.Size = new System.Drawing.Size(554, 194);
+            this.txtSha1Src.TabIndex = 2;
+            // 
+            // txtSha1SrcFile
+            // 
+            this.txtSha1SrcFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSha1SrcFile.Location = new System.Drawing.Point(83, 203);
+            this.txtSha1SrcFile.Name = "txtSha1SrcFile";
+            this.txtSha1SrcFile.Size = new System.Drawing.Size(474, 21);
+            this.txtSha1SrcFile.TabIndex = 3;
+            // 
+            // butSha1Browse
+            // 
+            this.butSha1Browse.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.butSha1Browse.Location = new System.Drawing.Point(563, 203);
+            this.butSha1Browse.Name = "butSha1Browse";
+            this.butSha1Browse.Size = new System.Drawing.Size(74, 23);
+            this.butSha1Browse.TabIndex = 4;
+            this.butSha1Browse.Text = "浏览";
+            this.butSha1Browse.UseVisualStyleBackColor = true;
+            this.butSha1Browse.Click += new System.EventHandler(this.butSha1Browse_Click);
+            // 
+            // cbSha1EncodingName
+            // 
+            this.cbSha1EncodingName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbSha1EncodingName.FormattingEnabled = true;
+            this.cbSha1EncodingName.Items.AddRange(new object[] {
+            "utf-8",
+            "us-ascii",
+            "gb2312",
+            "GB18030"});
+            this.cbSha1EncodingName.Location = new System.Drawing.Point(3, 235);
+            this.cbSha1EncodingName.Name = "cbSha1EncodingName";
+            this.cbSha1EncodingName.Size = new System.Drawing.Size(74, 20);
+            this.cbSha1EncodingName.TabIndex = 5;
+            // 
+            // butSha1
+            // 
+            this.butSha1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.butSha1.Location = new System.Drawing.Point(282, 233);
+            this.butSha1.Name = "butSha1";
+            this.butSha1.Size = new System.Drawing.Size(75, 23);
+            this.butSha1.TabIndex = 6;
+            this.butSha1.Text = "计算";
+            this.butSha1.UseVisualStyleBackColor = true;
+            this.butSha1.Click += new System.EventHandler(this.butSha1_Click);
+            // 
+            // label38
+            // 
+            this.label38.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(24, 284);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(53, 12);
+            this.label38.TabIndex = 7;
+            this.label38.Text = "散列码：";
+            // 
+            // txtSha1
+            // 
+            this.tableLayoutPanel26.SetColumnSpan(this.txtSha1, 2);
+            this.txtSha1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSha1.Location = new System.Drawing.Point(83, 263);
+            this.txtSha1.Multiline = true;
+            this.txtSha1.Name = "txtSha1";
+            this.txtSha1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtSha1.Size = new System.Drawing.Size(554, 54);
+            this.txtSha1.TabIndex = 8;
             // 
             // tpReplace
             // 
@@ -1790,7 +1932,7 @@
             this.tpEncodingTrans.Location = new System.Drawing.Point(4, 22);
             this.tpEncodingTrans.Name = "tpEncodingTrans";
             this.tpEncodingTrans.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEncodingTrans.Size = new System.Drawing.Size(640, 316);
+            this.tpEncodingTrans.Size = new System.Drawing.Size(640, 320);
             this.tpEncodingTrans.TabIndex = 8;
             this.tpEncodingTrans.Text = "文件转码";
             this.tpEncodingTrans.UseVisualStyleBackColor = true;
@@ -1822,7 +1964,7 @@
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(634, 310);
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(634, 314);
             this.tableLayoutPanel25.TabIndex = 0;
             // 
             // label33
@@ -2008,7 +2150,7 @@
             // 
             this.label35.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(52, 136);
+            this.label35.Location = new System.Drawing.Point(52, 138);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(65, 12);
             this.label35.TabIndex = 0;
@@ -2022,14 +2164,14 @@
             this.txtEftContent.Multiline = true;
             this.txtEftContent.Name = "txtEftContent";
             this.txtEftContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtEftContent.Size = new System.Drawing.Size(508, 229);
+            this.txtEftContent.Size = new System.Drawing.Size(508, 233);
             this.txtEftContent.TabIndex = 3;
             // 
             // label36
             // 
             this.label36.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(52, 266);
+            this.label36.Location = new System.Drawing.Point(52, 270);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(65, 12);
             this.label36.TabIndex = 0;
@@ -2039,7 +2181,7 @@
             // 
             this.label37.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(393, 266);
+            this.label37.Location = new System.Drawing.Point(393, 270);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(41, 12);
             this.label37.TabIndex = 0;
@@ -2190,7 +2332,7 @@
             "x-iscii-pa",
             "utf-7",
             "utf-8"});
-            this.cbEftOutput.Location = new System.Drawing.Point(440, 263);
+            this.cbEftOutput.Location = new System.Drawing.Point(440, 267);
             this.cbEftOutput.Name = "cbEftOutput";
             this.cbEftOutput.Size = new System.Drawing.Size(191, 20);
             this.cbEftOutput.TabIndex = 2;
@@ -2199,14 +2341,14 @@
             // txtEftOutput
             // 
             this.txtEftOutput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEftOutput.Location = new System.Drawing.Point(123, 263);
+            this.txtEftOutput.Location = new System.Drawing.Point(123, 267);
             this.txtEftOutput.Name = "txtEftOutput";
             this.txtEftOutput.Size = new System.Drawing.Size(191, 21);
             this.txtEftOutput.TabIndex = 4;
             // 
             // butEftLoad
             // 
-            this.butEftLoad.Location = new System.Drawing.Point(123, 288);
+            this.butEftLoad.Location = new System.Drawing.Point(123, 292);
             this.butEftLoad.Name = "butEftLoad";
             this.butEftLoad.Size = new System.Drawing.Size(75, 19);
             this.butEftLoad.TabIndex = 5;
@@ -2216,7 +2358,7 @@
             // 
             // butEftSave
             // 
-            this.butEftSave.Location = new System.Drawing.Point(440, 288);
+            this.butEftSave.Location = new System.Drawing.Point(440, 292);
             this.butEftSave.Name = "butEftSave";
             this.butEftSave.Size = new System.Drawing.Size(75, 19);
             this.butEftSave.TabIndex = 6;
@@ -2242,151 +2384,27 @@
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "tabPage2";
             // 
-            // tpSHA1
+            // cbSha1Type
             // 
-            this.tpSHA1.Controls.Add(this.tableLayoutPanel26);
-            this.tpSHA1.Location = new System.Drawing.Point(4, 22);
-            this.tpSHA1.Name = "tpSHA1";
-            this.tpSHA1.Size = new System.Drawing.Size(640, 316);
-            this.tpSHA1.TabIndex = 9;
-            this.tpSHA1.Text = "生成SHA1";
-            this.tpSHA1.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel26
-            // 
-            this.tableLayoutPanel26.ColumnCount = 3;
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel26.Controls.Add(this.radSha1Txt, 0, 0);
-            this.tableLayoutPanel26.Controls.Add(this.radSha1File, 0, 1);
-            this.tableLayoutPanel26.Controls.Add(this.txtSha1Src, 1, 0);
-            this.tableLayoutPanel26.Controls.Add(this.txtSha1SrcFile, 1, 1);
-            this.tableLayoutPanel26.Controls.Add(this.butSha1Browse, 2, 1);
-            this.tableLayoutPanel26.Controls.Add(this.cbSha1EncodingName, 0, 2);
-            this.tableLayoutPanel26.Controls.Add(this.butSha1, 1, 2);
-            this.tableLayoutPanel26.Controls.Add(this.label38, 0, 3);
-            this.tableLayoutPanel26.Controls.Add(this.txtSha1, 1, 3);
-            this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel26.Name = "tableLayoutPanel26";
-            this.tableLayoutPanel26.RowCount = 4;
-            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(640, 316);
-            this.tableLayoutPanel26.TabIndex = 0;
-            // 
-            // radSha1Txt
-            // 
-            this.radSha1Txt.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.radSha1Txt.AutoSize = true;
-            this.radSha1Txt.Checked = true;
-            this.radSha1Txt.Location = new System.Drawing.Point(18, 90);
-            this.radSha1Txt.Name = "radSha1Txt";
-            this.radSha1Txt.Size = new System.Drawing.Size(59, 16);
-            this.radSha1Txt.TabIndex = 0;
-            this.radSha1Txt.TabStop = true;
-            this.radSha1Txt.Text = "源文本";
-            this.radSha1Txt.UseVisualStyleBackColor = true;
-            this.radSha1Txt.CheckedChanged += new System.EventHandler(this.RadSha1CheckedChanged);
-            // 
-            // radSha1File
-            // 
-            this.radSha1File.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.radSha1File.AutoSize = true;
-            this.radSha1File.Location = new System.Drawing.Point(18, 203);
-            this.radSha1File.Name = "radSha1File";
-            this.radSha1File.Size = new System.Drawing.Size(59, 16);
-            this.radSha1File.TabIndex = 1;
-            this.radSha1File.Text = "源文件";
-            this.radSha1File.UseVisualStyleBackColor = true;
-            this.radSha1File.CheckedChanged += new System.EventHandler(this.RadSha1CheckedChanged);
-            // 
-            // txtSha1Src
-            // 
-            this.tableLayoutPanel26.SetColumnSpan(this.txtSha1Src, 2);
-            this.txtSha1Src.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSha1Src.Location = new System.Drawing.Point(83, 3);
-            this.txtSha1Src.MaxLength = 2147483647;
-            this.txtSha1Src.Multiline = true;
-            this.txtSha1Src.Name = "txtSha1Src";
-            this.txtSha1Src.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSha1Src.Size = new System.Drawing.Size(554, 190);
-            this.txtSha1Src.TabIndex = 2;
-            // 
-            // txtSha1SrcFile
-            // 
-            this.txtSha1SrcFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSha1SrcFile.Location = new System.Drawing.Point(83, 199);
-            this.txtSha1SrcFile.Name = "txtSha1SrcFile";
-            this.txtSha1SrcFile.Size = new System.Drawing.Size(474, 21);
-            this.txtSha1SrcFile.TabIndex = 3;
-            // 
-            // butSha1Browse
-            // 
-            this.butSha1Browse.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butSha1Browse.Location = new System.Drawing.Point(563, 199);
-            this.butSha1Browse.Name = "butSha1Browse";
-            this.butSha1Browse.Size = new System.Drawing.Size(74, 23);
-            this.butSha1Browse.TabIndex = 4;
-            this.butSha1Browse.Text = "浏览";
-            this.butSha1Browse.UseVisualStyleBackColor = true;
-            this.butSha1Browse.Click += new System.EventHandler(this.butSha1Browse_Click);
-            // 
-            // cbSha1EncodingName
-            // 
-            this.cbSha1EncodingName.FormattingEnabled = true;
-            this.cbSha1EncodingName.Items.AddRange(new object[] {
-            "utf-8",
-            "us-ascii",
-            "gb2312",
-            "GB18030"});
-            this.cbSha1EncodingName.Location = new System.Drawing.Point(3, 229);
-            this.cbSha1EncodingName.Name = "cbSha1EncodingName";
-            this.cbSha1EncodingName.Size = new System.Drawing.Size(74, 20);
-            this.cbSha1EncodingName.TabIndex = 5;
-            // 
-            // butSha1
-            // 
-            this.butSha1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butSha1.Location = new System.Drawing.Point(282, 229);
-            this.butSha1.Name = "butSha1";
-            this.butSha1.Size = new System.Drawing.Size(75, 23);
-            this.butSha1.TabIndex = 6;
-            this.butSha1.Text = "计算";
-            this.butSha1.UseVisualStyleBackColor = true;
-            this.butSha1.Click += new System.EventHandler(this.butSha1_Click);
-            // 
-            // label38
-            // 
-            this.label38.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(24, 280);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(53, 12);
-            this.label38.TabIndex = 7;
-            this.label38.Text = "散列码：";
-            // 
-            // txtSha1
-            // 
-            this.tableLayoutPanel26.SetColumnSpan(this.txtSha1, 2);
-            this.txtSha1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSha1.Location = new System.Drawing.Point(83, 259);
-            this.txtSha1.Multiline = true;
-            this.txtSha1.Name = "txtSha1";
-            this.txtSha1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSha1.Size = new System.Drawing.Size(554, 54);
-            this.txtSha1.TabIndex = 8;
+            this.cbSha1Type.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbSha1Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSha1Type.FormattingEnabled = true;
+            this.cbSha1Type.Items.AddRange(new object[] {
+            "SHA1",
+            "SHA256",
+            "SHA384",
+            "SHA512"});
+            this.cbSha1Type.Location = new System.Drawing.Point(563, 235);
+            this.cbSha1Type.Name = "cbSha1Type";
+            this.cbSha1Type.Size = new System.Drawing.Size(74, 20);
+            this.cbSha1Type.TabIndex = 9;
             // 
             // FrmMain
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 342);
+            this.ClientSize = new System.Drawing.Size(648, 346);
             this.Controls.Add(this.tcMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
@@ -2440,6 +2458,9 @@
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudGUIDCount)).EndInit();
             this.tcMain.ResumeLayout(false);
+            this.tpSHA1.ResumeLayout(false);
+            this.tableLayoutPanel26.ResumeLayout(false);
+            this.tableLayoutPanel26.PerformLayout();
             this.tpReplace.ResumeLayout(false);
             this.tableLayoutPanel21.ResumeLayout(false);
             this.tableLayoutPanel21.PerformLayout();
@@ -2450,9 +2471,6 @@
             this.tpEncodingTrans.ResumeLayout(false);
             this.tableLayoutPanel25.ResumeLayout(false);
             this.tableLayoutPanel25.PerformLayout();
-            this.tpSHA1.ResumeLayout(false);
-            this.tableLayoutPanel26.ResumeLayout(false);
-            this.tableLayoutPanel26.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2610,6 +2628,7 @@
         private System.Windows.Forms.Button butSha1;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.TextBox txtSha1;
+        private System.Windows.Forms.ComboBox cbSha1Type;
     }
 }
 

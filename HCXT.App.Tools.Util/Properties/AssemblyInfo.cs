@@ -29,5 +29,12 @@ using System.Runtime.InteropServices;
 //      内部版本号
 //      修订号
 //
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.2")]
+[assembly: AssemblyFileVersion("1.2015.0122.1745")]
+
+// 更新日志
+//
+// 2015-01-22
+//     版 本 号：1.0.0.2
+//     版 本 号：1.2015.0122.1745
+//     更新记录：增加SHA1、SHA256、SHA384、SHA512哈希算法

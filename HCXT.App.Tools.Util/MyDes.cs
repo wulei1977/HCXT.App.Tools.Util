@@ -25,7 +25,8 @@ namespace HCXT.App.Tools.Util
         /// <returns></returns>
         public static string Encrypt(string pToEncrypt, string sKey, string sIv, bool isBase64)
         {
-            using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
+            //TripleDESCryptoServiceProvider
+            using (SymmetricAlgorithm des = new DESCryptoServiceProvider())
             {
                 byte[] inputByteArray = Encoding.GetEncoding(EncodingName).GetBytes(pToEncrypt);
                 byte[] desKey = new byte[8];
@@ -76,7 +77,7 @@ namespace HCXT.App.Tools.Util
                 ms.Seek(0, SeekOrigin.Begin);
                 inputByteArray = ms.ToArray();
             }
-            using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
+            using (SymmetricAlgorithm des = new DESCryptoServiceProvider())
             {
                 byte[] desKey = new byte[8];
                 byte[] desIv = new byte[8];
@@ -97,16 +98,6 @@ namespace HCXT.App.Tools.Util
                 ms.Close();
                 return str;
             }
-        }
-
-        /// <summary>
-        /// ¥¥Ω®√‹‘ø
-        /// </summary>
-        /// <returns></returns>
-        public static string GenerateKey()
-        {
-            DESCryptoServiceProvider desCrypto = (DESCryptoServiceProvider)DES.Create();
-            return Encoding.ASCII.GetString(desCrypto.Key);
         }
 
         /// <summary>

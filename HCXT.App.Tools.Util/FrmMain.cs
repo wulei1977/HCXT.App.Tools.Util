@@ -21,6 +21,7 @@ namespace HCXT.App.Tools.Util
             cbBase64EncodingName.SelectedIndex = 0;
             cbMd5EncodingName.SelectedIndex = 0;
             cbSha1EncodingName.SelectedIndex = 0;
+            cbSha1Type.SelectedIndex = 0;
             cbDesEncodingName.SelectedIndex = 0;
             cbAesEncodingName.SelectedIndex = 0;
 
@@ -149,7 +150,7 @@ namespace HCXT.App.Tools.Util
         private void butSha1_Click(object sender, EventArgs e)
         {
             txtSha1.Text = GetSha1(radSha1File.Checked ? txtSha1SrcFile.Text : txtSha1Src.Text, radSha1File.Checked,
-                     cbSha1EncodingName.Text);
+                     cbSha1EncodingName.Text, cbSha1Type.SelectedItem.ToString());
         }
 
         private void RadSha1CheckedChanged(object sender, EventArgs e)
@@ -164,10 +165,27 @@ namespace HCXT.App.Tools.Util
         /// <param name="inputString">指定字符串</param>
         /// <param name="isFile"> </param>
         /// <param name="encodingName"> </param>
+        /// <param name="shaType">SHA算法，其值可以是：SHA1、SHA256、SHA384、SHA512</param>
         /// <returns></returns>
-        public static string GetSha1(string inputString, bool isFile, string encodingName)
+        public static string GetSha1(string inputString, bool isFile, string encodingName, string shaType)
         {
-            SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider();
+            HashAlgorithm sha1;
+
+            switch (shaType)
+            {
+                case "SHA256":
+                    sha1 = new SHA256Managed();
+                    break;
+                case "SHA384":
+                    sha1 = new SHA384Managed();
+                    break;
+                case "SHA512":
+                    sha1 = new SHA512Managed();
+                    break;
+                default:
+                    sha1 = new SHA1CryptoServiceProvider();
+                    break;
+            }
             byte[] sha1Byte;
             if (isFile)
             {
