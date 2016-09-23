@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
+using System.Resources;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -28,6 +30,11 @@ namespace HCXT.App.Tools.Util
             cbCipherMode.SelectedIndex = 0;
             cbPaddingMode.SelectedIndex = 1;
 
+            var resources = new ResourceManager("HCXT.App.Tools.Util.Properties.Resources", Assembly.GetEntryAssembly());
+            object[] arr = resources.GetString("EncodingNameList").Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            cbEftInput.Items.AddRange(arr);
+            cbEftOutput.Items.AddRange(arr);
+            cbReplaceEncoding.Items.AddRange(arr);
             //MessageBox.Show(AppDomain.CurrentDomain.FriendlyName);
             //Icon = ApiTools.GetIcon(AppDomain.CurrentDomain.FriendlyName, true);
         }
@@ -414,6 +421,9 @@ namespace HCXT.App.Tools.Util
         {
             const string jiong = "此功能还没写完，最近没时间弄。有时间再说吧。\r\n囧.....";
             MessageBox.Show(jiong);
+            var frmAbout = new FrmAbout();
+            frmAbout.ShowDialog(this);
+            frmAbout.Dispose();
             //return;
             /*
             byte[] repGbFrom = Encoding.GetEncoding("gb18030").GetBytes(txtReplaceFrom.Text);

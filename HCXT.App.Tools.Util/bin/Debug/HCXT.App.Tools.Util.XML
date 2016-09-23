@@ -192,6 +192,11 @@
               重写当前线程的 CurrentUICulture 属性。
             </summary>
         </member>
+        <member name="P:HCXT.App.Tools.Util.Properties.Resources.EncodingNameList">
+            <summary>
+              查找类似 IBM037,IBM437,IBM500,ASMO-708,DOS-720,ibm737,ibm775,ibm850,ibm852,IBM855,ibm857,IBM00858,IBM860,ibm861,DOS-862,IBM863,IBM864,IBM865,cp866,ibm869,IBM870,windows-874,cp875,shift_jis,gb2312,ks_c_5601-1987,big5,IBM1026,IBM01047,IBM01140,IBM01141,IBM01142,IBM01143,IBM01144,IBM01145,IBM01146,IBM01147,IBM01148,IBM01149,utf-16,unicodeFFFE,windows-1250,windows-1251,Windows-1252,windows-1253,windows-1254,windows-1255,windows-1256,windows-1257,windows-1258,Johab,macintosh,x-mac-japanese,x-mac-chinesetrad,x-mac-korean, [字符串的其余部分被截断]&quot;; 的本地化字符串。
+            </summary>
+        </member>
         <member name="M:HCXT.App.Tools.Util.Program.Main">
             <summary>
             应用程序的主入口点。
@@ -229,6 +234,23 @@
         <member name="T:HCXT.App.Tools.Util.ApiTools.SHGFI">
             <summary>
             
+            </summary>
+        </member>
+        <member name="F:HCXT.App.Tools.Util.FrmAbout.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HCXT.App.Tools.Util.FrmAbout.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HCXT.App.Tools.Util.FrmAbout.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
     </members>

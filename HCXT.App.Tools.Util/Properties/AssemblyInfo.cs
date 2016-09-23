@@ -29,10 +29,16 @@ using System.Runtime.InteropServices;
 //      内部版本号
 //      修订号
 //
-[assembly: AssemblyVersion("1.0.0.3")]
-[assembly: AssemblyFileVersion("1.2016.0216.1430")]
+[assembly: AssemblyVersion("1.0.0.4")]
+[assembly: AssemblyFileVersion("1.2016.0923.1411")]
 
 // 更新日志
+//
+// 2016-09-23
+//     版 本 号：1.0.0.4
+//     版 本 号：1.2016.0923.1411
+//     更新记录：增加About窗体
+//               将部分字符集下拉框的内容放到资源文件里，以节省代码量
 //
 // 2016-02-16
 //     版 本 号：1.0.0.3
