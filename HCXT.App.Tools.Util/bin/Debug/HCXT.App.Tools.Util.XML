@@ -33,12 +33,6 @@
             <param name="isBase64"> </param>
             <returns>已解密的字符串。</returns>
         </member>
-        <member name="M:HCXT.App.Tools.Util.MyDes.GenerateKey">
-            <summary>
-            创建密钥
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:HCXT.App.Tools.Util.MyDes.ToHexString(System.Byte[])">
             <summary>
             
@@ -97,16 +91,6 @@
             <param name="isFile"> </param>
             <param name="encodingName"> </param>
             <param name="shaType">SHA算法，其值可以是：SHA1、SHA256、SHA384、SHA512</param>
-            <returns></returns>
-        </member>
-        <member name="M:HCXT.App.Tools.Util.FrmMain.Trap(System.IO.Stream,System.IO.Stream,System.Byte[],System.Int32)">
-            <summary>
-            陷阱
-            </summary>
-            <param name="streamRead"></param>
-            <param name="streamWrite"></param>
-            <param name="rep"></param>
-            <param name="level"></param>
             <returns></returns>
         </member>
         <member name="T:HCXT.App.Tools.Util.DelegateOnLog">

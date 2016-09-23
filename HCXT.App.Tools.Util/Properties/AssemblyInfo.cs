@@ -29,10 +29,15 @@ using System.Runtime.InteropServices;
 //      内部版本号
 //      修订号
 //
-[assembly: AssemblyVersion("1.0.0.2")]
-[assembly: AssemblyFileVersion("1.2015.0122.1745")]
+[assembly: AssemblyVersion("1.0.0.3")]
+[assembly: AssemblyFileVersion("1.2016.0216.1430")]
 
 // 更新日志
+//
+// 2016-02-16
+//     版 本 号：1.0.0.3
+//     版 本 号：1.2016.0216.1430
+//     更新记录：增加RSA算法
 //
 // 2015-01-22
 //     版 本 号：1.0.0.2

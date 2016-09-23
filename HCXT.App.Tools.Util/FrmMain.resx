@@ -120,6 +120,24 @@
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="txtRsaPk.Text" xml:space="preserve">
+    <value>&lt;RSAKeyValue&gt;
+    &lt;Modulus&gt;xD66KIkK8B7z+D1Xgxvfcn1t0K2BsG1/VtaWYKtAqqvcRUXC2J6dzf645P6hSAjN2GQZblaDCCDlhsy4GZVRGoa2uxtXRwaYV8YoPP64g5GJRDP3HCvXD0yj+uMOyIfvWEWH7iY9IXlRZO/gou/IJvyd9KJofah/L0AQbhV5Uuk=&lt;/Modulus&gt;
+    &lt;Exponent&gt;AQAB&lt;/Exponent&gt;
+&lt;/RSAKeyValue&gt;</value>
+  </data>
+  <data name="txtRsaSk.Text" xml:space="preserve">
+    <value>&lt;RSAKeyValue&gt;
+    &lt;Modulus&gt;xD66KIkK8B7z+D1Xgxvfcn1t0K2BsG1/VtaWYKtAqqvcRUXC2J6dzf645P6hSAjN2GQZblaDCCDlhsy4GZVRGoa2uxtXRwaYV8YoPP64g5GJRDP3HCvXD0yj+uMOyIfvWEWH7iY9IXlRZO/gou/IJvyd9KJofah/L0AQbhV5Uuk=&lt;/Modulus&gt;
+    &lt;Exponent&gt;AQAB&lt;/Exponent&gt;
+    &lt;P&gt;5uSjh7GsIJQ3SUdI4c3y/16VxPNaU/b4iEIEiyG0FvH3jBIllMgQ/kEVGvW7ontLOW0QnefuFem7ehqCPhrwIw==&lt;/P&gt;
+    &lt;Q&gt;2ZWXTiK/I1btdqeE1zYuUSVni/1ee266TgpCb0dlKV+j5247f/2g9akHjDHR+F6lk0LHpjRqL4MbhYE/15xbgw==&lt;/Q&gt;
+    &lt;DP&gt;l8kYg9zWJfipu5+EFwU3yI8acAX2jJof2htkNz6p0CezL77CO+Ol4C9Su41tkyvwUMkVEmlkx70GxQdmNYOp9w==&lt;/DP&gt;
+    &lt;DQ&gt;h+lqNtN7g26kLC7dyrS8X9G2iXo9z2pOE7tS3kHBjgOA1WpE3mEmbu0jms3v823jjUX0gfxRq9YAlfczUtIHUw==&lt;/DQ&gt;
+    &lt;InverseQ&gt;2EDMcsq3ze5AmoCMWOHLhXisHea0jpoz0rI3Z8fNIeCQ+ifVoEzfoTKRnlgoscWBVt+L2R5zV5zZf39o7N5kkw==&lt;/InverseQ&gt;
+    &lt;D&gt;gK3U6VF7H5pcRTEL2geDzBHc2RF8UZBrCCjrL/X7EC5i3/VvXxUayoE1AcrJPG+xciuo1UXa45CWkH5aVUQoigMqlr19odYUNbnmHUVqk2apLCMfBDYQix16QpjRU461KqPZmbGTTEgAQlCVNBydmmBxVJ6sdXNyCvYwyruIobU=&lt;/D&gt;
+&lt;/RSAKeyValue&gt;</value>
+  </data>
   <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>165, 17</value>
   </metadata>

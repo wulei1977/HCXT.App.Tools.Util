@@ -304,9 +304,11 @@ namespace HCXT.App.Tools.Util
         {
             try
             {
-                MyAes aes = new MyAes(txtAesKey.Text, txtAesVI.Text, cbAesEncodingName.Text);
-                aes.CipherModeName = cbCipherMode.SelectedItem.ToString();
-                aes.PaddingModeName = cbPaddingMode.SelectedItem.ToString();
+                var aes = new MyAes(txtAesKey.Text, txtAesVI.Text, cbAesEncodingName.Text)
+                {
+                    CipherModeName = cbCipherMode.SelectedItem.ToString(),
+                    PaddingModeName = cbPaddingMode.SelectedItem.ToString()
+                };
                 if(radAesBase64.Checked)
                     txtAesObj.Text = aes.Encrypt(txtAesSrc.Text);
                 else
@@ -326,9 +328,11 @@ namespace HCXT.App.Tools.Util
         {
             try
             {
-                MyAes aes = new MyAes(txtAesKey.Text, txtAesVI.Text, cbAesEncodingName.Text);
-                aes.CipherModeName = cbCipherMode.SelectedItem.ToString();
-                aes.PaddingModeName = cbPaddingMode.SelectedItem.ToString();
+                var aes = new MyAes(txtAesKey.Text, txtAesVI.Text, cbAesEncodingName.Text)
+                {
+                    CipherModeName = cbCipherMode.SelectedItem.ToString(),
+                    PaddingModeName = cbPaddingMode.SelectedItem.ToString()
+                };
                 if (radAesBase64.Checked)
                     txtAesSrc.Text = aes.Decrypt(txtAesObj.Text);
                 else
@@ -355,6 +359,47 @@ namespace HCXT.App.Tools.Util
         }
         #endregion
 
+        #region RSA相关
+        //private readonly RSACryptoServiceProvider rsaCryptoServiceProvider = new RSACryptoServiceProvider();
+        private void ButRsaClick(object sender, EventArgs e)
+        {
+            var but = (Button)sender;
+            var encoder = System.Text.Encoding.Default;
+            try
+            {
+                switch (but.Name)
+                {
+                    case "butRsaEncrypt":
+                        {
+                            var dataToEncrypt = encoder.GetBytes(txtRsaSrc.Text);
+                            var rsaEnc = new RSACryptoServiceProvider();
+                            rsaEnc.FromXmlString(txtRsaPk.Text);
+                            //rsaEnc.ImportParameters(rsaCryptoServiceProvider.ExportParameters(false));
+                            var encryptedData = rsaEnc.Encrypt(dataToEncrypt, false);
+                            txtRsaObj.Text = Convert.ToBase64String(encryptedData);
+                            //txtRsaObj.Text += string.Format("\r\n{0}", rsaEnc.ToXmlString(false));
+                        }
+                        break;
+                    case "butRsaDecrypt":
+                        {
+                            var encryptedData = Convert.FromBase64String(txtRsaObj.Text);
+                            var rsaDec = new RSACryptoServiceProvider();
+                            rsaDec.FromXmlString(txtRsaSk.Text);
+                            //rsaDec.ImportParameters(rsaCryptoServiceProvider.ExportParameters(true));
+                            var decryptedData = rsaDec.Decrypt(encryptedData, false);
+                            txtRsaSrc.Text = encoder.GetString(decryptedData);
+                            //txtRsaSrc.Text += string.Format("\r\n{0}", rsaDec.ToXmlString(true));
+                        }
+                        break;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(string.Format("发生异常！异常信息：{0}\r\n堆栈：{1}", err.Message, err.StackTrace));
+            }
+        }
+        #endregion
+
         #region 文件批量替换相关(未完成)
         private void butReplaceFolderBrowse_Click(object sender, EventArgs e)
         {
@@ -367,8 +412,10 @@ namespace HCXT.App.Tools.Util
 
         private void butReplace_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("此功能还没写完，最近没时间弄。有时间再说吧。\r\n囧.....");
-            return;
+            const string jiong = "此功能还没写完，最近没时间弄。有时间再说吧。\r\n囧.....";
+            MessageBox.Show(jiong);
+            //return;
+            /*
             byte[] repGbFrom = Encoding.GetEncoding("gb18030").GetBytes(txtReplaceFrom.Text);
             byte[] repGbTo = Encoding.GetEncoding("gb18030").GetBytes(txtReplaceTo.Text);
             byte[] repUtfFrom = Encoding.GetEncoding("utf-8").GetBytes(txtReplaceFrom.Text);
@@ -421,9 +468,9 @@ namespace HCXT.App.Tools.Util
                 }
 
             }
-
+            */
         }
-
+        /*
         /// <summary>
         /// 陷阱
         /// </summary>
@@ -443,6 +490,7 @@ namespace HCXT.App.Tools.Util
 
             return 0;
         }
+        */
         #endregion
 
         #region 文件转码相关
@@ -468,6 +516,29 @@ namespace HCXT.App.Tools.Util
             catch (Exception err)
             {
                 txtEftContent.Text = string.Format("{0}\r\n堆栈：{1}", err.Message, err.StackTrace);
+            }
+        }
+
+        private void butEftBrowse_Click(object sender, EventArgs e)
+        {
+            var but = (Button) sender;
+            var dlg = but.Name == "butEftBrowseLoad"
+                ? new OpenFileDialog {CheckFileExists = true, Multiselect = false}
+                : (FileDialog) new SaveFileDialog ();
+            var txt = but.Name == "butEftBrowseLoad" ? txtEftInput : txtEftOutput;
+            try
+            {
+                var dlgRes = dlg.ShowDialog(this);
+                if (dlgRes == DialogResult.OK)
+                    txt.Text = dlg.FileName;
+            }
+            catch (Exception err)
+            {
+                txtEftContent.Text = string.Format("{0}\r\n堆栈：{1}", err.Message, err.StackTrace);
+            }
+            finally
+            {
+                dlg.Dispose();
             }
         }
         #endregion
