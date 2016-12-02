@@ -29,10 +29,16 @@ using System.Runtime.InteropServices;
 //      内部版本号
 //      修订号
 //
-[assembly: AssemblyVersion("1.0.0.4")]
-[assembly: AssemblyFileVersion("1.2016.0923.1411")]
+[assembly: AssemblyVersion("1.0.0.5")]
+[assembly: AssemblyFileVersion("1.2016.1121.1705")]
 
 // 更新日志
+//
+// 2016-09-23
+//     版 本 号：1.0.0.5
+//     版 本 号：1.2016.1121.1705
+//     更新记录：RSA工具增加“新密钥”和“导出密钥文件”功能。
+//               增加“文件工具”选项卡，计划实现校验文件长度、MD5、SHA1；查看修改文件属性(A/S/H/R)；查看修改创建时间、修改时间、访问时间。该功能目前尚未完成。
 //
 // 2016-09-23
 //     版 本 号：1.0.0.4

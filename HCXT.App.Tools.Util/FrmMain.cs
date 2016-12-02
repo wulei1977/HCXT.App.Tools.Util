@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Data.Odbc;
 using System.IO;
 using System.Reflection;
 using System.Resources;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace HCXT.App.Tools.Util
 {
@@ -35,6 +38,7 @@ namespace HCXT.App.Tools.Util
             cbEftInput.Items.AddRange(arr);
             cbEftOutput.Items.AddRange(arr);
             cbReplaceEncoding.Items.AddRange(arr);
+            cbRsaEncoding.Items.AddRange(arr);
             //MessageBox.Show(AppDomain.CurrentDomain.FriendlyName);
             //Icon = ApiTools.GetIcon(AppDomain.CurrentDomain.FriendlyName, true);
         }
@@ -371,9 +375,9 @@ namespace HCXT.App.Tools.Util
         private void ButRsaClick(object sender, EventArgs e)
         {
             var but = (Button)sender;
-            var encoder = System.Text.Encoding.Default;
             try
             {
+                var encoder = System.Text.Encoding.GetEncoding(cbRsaEncoding.Text);
                 switch (but.Name)
                 {
                     case "butRsaEncrypt":
@@ -396,6 +400,54 @@ namespace HCXT.App.Tools.Util
                             var decryptedData = rsaDec.Decrypt(encryptedData, false);
                             txtRsaSrc.Text = encoder.GetString(decryptedData);
                             //txtRsaSrc.Text += string.Format("\r\n{0}", rsaDec.ToXmlString(true));
+                        }
+                        break;
+                    case "butRsaNew":
+                        {
+                            var rsa = new RSACryptoServiceProvider();
+                            var sk = rsa.ToXmlString(true);
+                            var domPk = new XmlDocument();
+                            domPk.LoadXml(sk);
+                            var arrSkNode = new[] { "P", "Q", "DP", "DQ", "InverseQ", "D" };
+                            var root = domPk.SelectSingleNode("//RSAKeyValue");
+                            foreach (var s in arrSkNode)
+                                root.RemoveChild(root.SelectSingleNode(s));
+                            var pk = root.OuterXml;
+                            txtRsaPk.Text = pk;
+                            txtRsaSk.Text = sk;
+                        }
+                        break;
+                    case "butRsaExport":
+                        {
+                            const string ext = ".key";
+                            const string flt = "key文件|*.key";
+                            const string reg = "\\.key$";
+                            const string errMsgExpFileName = "导出失败！文件名错误。";
+                            var sfd = new SaveFileDialog {DefaultExt = ext, Filter = flt};
+                            var dr = sfd.ShowDialog();
+                            sfd.Dispose();
+                            if (dr == DialogResult.OK)
+                            {
+                                var fName = sfd.FileName;
+                                if (fName.Length < 5)
+                                {
+                                    MessageBox.Show(errMsgExpFileName);
+                                    return;
+                                }
+                                var exName = fName.Substring(fName.Length - 4, 4).ToLower();
+                                fName = exName != ext ? fName + ext : fName.Substring(0, fName.Length - 4) + exName;
+                                var pkName = Regex.Replace(fName, reg, "_Public.key");
+                                var skName = Regex.Replace(fName, reg, "_Private.key");
+                                try
+                                {
+                                    File.WriteAllText(pkName, txtRsaPk.Text, encoder);
+                                    File.WriteAllText(skName, txtRsaSk.Text, encoder);
+                                }
+                                catch (Exception err)
+                                {
+                                    MessageBox.Show(string.Format("发生异常！异常信息：{0}\r\n堆栈：{1}", err.Message, err.StackTrace));
+                                }
+                            }
                         }
                         break;
                 }
@@ -552,5 +604,124 @@ namespace HCXT.App.Tools.Util
             }
         }
         #endregion
+
+        private void butFtClick(object sender, EventArgs e)
+        {
+            var but = (Button) sender;
+            switch (but.Name)
+            {
+                case "butFtBrowse":
+                    var ofd = new OpenFileDialog { CheckFileExists = true, Multiselect = false };
+                    if (ofd.ShowDialog(this) != DialogResult.OK)
+                        break;
+                    txtFtFileName.Text = ofd.FileName;
+                    ofd.Dispose();
+                    break;
+                case "butFtLoad":
+                {
+                    if (!File.Exists(txtFtFileName.Text))
+                    {
+                        MessageBox.Show(string.Format("文件“{0}”不存在！", txtFtFileName.Text));
+                        break;
+                    }
+                    var fi = new FileInfo(txtFtFileName.Text);
+                    labFtLen.Text = fi.Length.ToString("##,###");
+                    chkFtA.Checked = (fi.Attributes & FileAttributes.Archive) != 0;
+                    chkFtS.Checked = (fi.Attributes & FileAttributes.System) != 0;
+                    chkFtH.Checked = (fi.Attributes & FileAttributes.Hidden) != 0;
+                    chkFtR.Checked = (fi.Attributes & FileAttributes.ReadOnly) != 0;
+                    dtFtCreateTime.Value = fi.CreationTime;
+                    dtFtModifyTime.Value = fi.LastWriteTime;
+                    dtFtAccessTime.Value = fi.LastAccessTime;
+                }
+                    break;
+                case "butFtCheckLen":
+                {
+                    if (!File.Exists(txtFtFileName.Text))
+                    {
+                        MessageBox.Show(string.Format("文件“{0}”不存在！", txtFtFileName.Text));
+                        break;
+                    }
+                    FileStream fsStream = null;
+                    long len = 0;
+                    try
+                    {
+                        fsStream = File.OpenRead(txtFtFileName.Text);
+                        const int buffSize= 0x1000000;
+                        var buff = new byte[buffSize];
+                        var readLen = 0;
+                        do
+                        {
+                            readLen = fsStream.Read(buff, 0, buffSize);
+                            len += readLen;
+                        } while (readLen > 0);
+                        MessageBox.Show(string.Format("文件“{0}”实际长度为：[{1}]，与标注长度[{2}]{3}", txtFtFileName.Text,
+                            len.ToString("##,###"), labFtLen.Text, len.ToString("##,###") == labFtLen.Text ? "相同" : "不同"));
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show(string.Format("文件“{0}”读取发生异常。异常信息：{1}", txtFtFileName.Text, err.Message));
+                    }
+                    finally
+                    {
+                        if (fsStream != null)
+                            fsStream.Dispose();
+                    }
+                }
+                    break;
+                case "butFtMd5":
+                {
+                    if (!File.Exists(txtFtFileName.Text))
+                    {
+                        MessageBox.Show(string.Format("文件“{0}”不存在！", txtFtFileName.Text));
+                        break;
+                    }
+                    txtFtMd5.Text = GetMd5(txtFtFileName.Text, true, null);
+                }
+                    break;
+                case "butFtSha1":
+                {
+                    if (!File.Exists(txtFtFileName.Text))
+                    {
+                        MessageBox.Show(string.Format("文件“{0}”不存在！", txtFtFileName.Text));
+                        break;
+                    }
+                    txtFtSha1.Text = GetSha1(txtFtFileName.Text, true, null, "SHA1");
+                }
+                    break;
+                case "butFtUpdateAttrib":
+                {
+                    if (!File.Exists(txtFtFileName.Text))
+                    {
+                        MessageBox.Show(string.Format("文件“{0}”不存在！", txtFtFileName.Text));
+                        break;
+                    }
+                    var fi = new FileInfo(txtFtFileName.Text);
+                    var vA = chkFtA.Checked ? FileAttributes.Archive : FileAttributes.Normal;
+
+                    if (chkFtA.Checked)
+                        fi.Attributes = fi.Attributes | FileAttributes.Archive;
+                    else
+                        fi.Attributes = fi.Attributes ^ FileAttributes.Archive;
+
+                    chkFtA.Checked = (fi.Attributes & FileAttributes.Archive) != 0;
+                    chkFtS.Checked = (fi.Attributes & FileAttributes.System) != 0;
+                    chkFtH.Checked = (fi.Attributes & FileAttributes.Hidden) != 0;
+                    chkFtR.Checked = (fi.Attributes & FileAttributes.ReadOnly) != 0;
+
+                }
+                    break;
+                case "butFtUpdateCreateTime":
+
+                    break;
+                case "butFtUpdateModifyTime":
+
+                    break;
+                case "butFtUpdateAccessTime":
+
+                    break;
+            }
+        }
+
     }
 }
