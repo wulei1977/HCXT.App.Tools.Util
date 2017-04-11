@@ -29,10 +29,15 @@ using System.Runtime.InteropServices;
 //      内部版本号
 //      修订号
 //
-[assembly: AssemblyVersion("1.0.0.5")]
-[assembly: AssemblyFileVersion("1.2016.1121.1705")]
+[assembly: AssemblyVersion("1.0.0.6")]
+[assembly: AssemblyFileVersion("1.2017.0411.1712")]
 
 // 更新日志
+//
+// 2017-04-11
+//     版 本 号：1.0.0.6
+//     版 本 号：1.2017.0411.1712
+//     更新记录：增加HTTP测试功能。提供Get/Post提交测试功能
 //
 // 2016-09-23
 //     版 本 号：1.0.0.5

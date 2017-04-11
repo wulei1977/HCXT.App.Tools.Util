@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Odbc;
 using System.IO;
+using System.Net;
 using System.Reflection;
 using System.Resources;
 using System.Security.Cryptography;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
+using Microsoft.VisualBasic.Logging;
 
 namespace HCXT.App.Tools.Util
 {
@@ -723,5 +725,113 @@ namespace HCXT.App.Tools.Util
             }
         }
 
+        private void ButHttpTest_Click(object sender, EventArgs e)
+        {
+            if (RadHttpTestGet.Checked)
+                TxtHttpTestResponse.Text = HttpGet(TxtHttpTestUrl.Text);
+            else
+                TxtHttpTestResponse.Text = HttpPost(TxtHttpTestUrl.Text,TxtHttpTestPostData.Text);
+        }
+
+
+
+        /// <summary>
+        /// 向服务端发起GET请求，取得返回信息
+        /// </summary>
+        /// <param name="url">请求的URL</param>
+        /// <returns></returns>
+        private string HttpGet(string url)
+        {
+            Stream res = null;
+            HttpWebResponse rsp = null;
+            try
+            {
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+                req.Method = "GET";
+                req.ContentType = "application/x-www-form-urlencoded";
+
+                rsp = (HttpWebResponse)req.GetResponse();
+                res = rsp.GetResponseStream();
+                byte[] buff = new byte[4096];
+
+                if (res != null)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    int readLen = res.Read(buff, 0, buff.Length);
+                    while (readLen > 0)
+                    {
+                        sb.Append(Encoding.UTF8.GetString(buff, 0, readLen));
+                        readLen = res.Read(buff, 0, buff.Length);
+                    }
+                    //Log("Debug", string.Format("[WeixinMsgFileScaner.HttpGet] 向URL地址[{0}]发起GET请求，返回信息：{1}", url, sb));
+                    return sb.ToString();
+                }
+            }
+            catch (Exception err)
+            {
+                return string.Format("[HttpGet] 发生异常。异常信息：{0}\r\n堆栈：{1}", err.Message, err.StackTrace);
+            }
+            finally
+            {
+                if (res != null) res.Dispose();
+                if (rsp != null) rsp.Close();
+            }
+            return "";
+        }
+        /// <summary>
+        /// 向服务端发起Post请求，取得返回信息
+        /// </summary>
+        /// <param name="url">请求的URL</param>
+        /// <param name="data">Post的数据</param>
+        /// <returns></returns>
+        private string HttpPost(string url, string data)
+        {
+            Stream res = null;
+            HttpWebResponse rsp = null;
+            Stream sw = null;
+            StreamWriter myWriter = null;
+            try
+            {
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+                req.Method = "POST";
+                req.ContentType = "application/x-www-form-urlencoded";
+
+                sw = req.GetRequestStream();
+                myWriter = new StreamWriter(sw);
+                myWriter.Write(data);
+                myWriter.Close();
+                myWriter.Dispose();
+                myWriter = null;
+
+                rsp = (HttpWebResponse)req.GetResponse();
+                res = rsp.GetResponseStream();
+                byte[] buff = new byte[4096];
+
+                if (res != null)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    int readLen = res.Read(buff, 0, buff.Length);
+                    while (readLen > 0)
+                    {
+                        sb.Append(Encoding.UTF8.GetString(buff, 0, readLen));
+                        readLen = res.Read(buff, 0, buff.Length);
+                    }
+                    //Log("Debug", string.Format("[WeixinMsgFileScaner.HttpPost] 向URL地址[{0}]发起Post请求，返回信息：{1}", url, sb));
+                    return sb.ToString();
+                }
+            }
+            catch (Exception err)
+            {
+                return string.Format("[HttpPost] 发生异常。异常信息：{0}\r\n堆栈：{1}", err.Message, err.StackTrace);
+            }
+            finally
+            {
+                if (res != null) res.Dispose();
+                if (rsp != null) rsp.Close();
+                if (sw != null) sw.Dispose();
+                if (myWriter != null) myWriter.Dispose();
+            }
+            return "";
+        }
     }
 }
