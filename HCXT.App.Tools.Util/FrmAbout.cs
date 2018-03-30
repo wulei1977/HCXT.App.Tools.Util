@@ -37,7 +37,8 @@ namespace HCXT.App.Tools.Util
 
         private void linkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(this.linkLabel.Text);
+            var ll = (LinkLabel) sender;
+            System.Diagnostics.Process.Start(ll.Text);
         }
 
     }

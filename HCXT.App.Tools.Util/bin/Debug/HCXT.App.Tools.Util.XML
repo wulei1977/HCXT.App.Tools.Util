@@ -110,14 +110,14 @@
             <param name="shaType">SHA算法，其值可以是：SHA1、SHA256、SHA384、SHA512</param>
             <returns></returns>
         </member>
-        <member name="M:HCXT.App.Tools.Util.FrmMain.HttpGet(System.String)">
+        <member name="M:HCXT.App.Tools.Util.FrmMain.HttpGet(System.String,System.String,System.Collections.Hashtable)">
             <summary>
             向服务端发起GET请求，取得返回信息
             </summary>
             <param name="url">请求的URL</param>
             <returns></returns>
         </member>
-        <member name="M:HCXT.App.Tools.Util.FrmMain.HttpPost(System.String,System.String)">
+        <member name="M:HCXT.App.Tools.Util.FrmMain.HttpPost(System.String,System.String,System.String,System.Collections.Hashtable)">
             <summary>
             向服务端发起Post请求，取得返回信息
             </summary>

@@ -150,14 +150,8 @@ namespace HCXT.App.Tools.Util
             }
         }
 
-        /// <summary>
-        /// AES加密算法
-        /// </summary>
-        /// <param name="plainText">明文字节数组</param>
-        /// <returns>返回加密后的密文字节数组</returns>
-        public byte[] Encrypt(byte[] plainText)
+        private void SetMode(SymmetricAlgorithm aes)
         {
-            SymmetricAlgorithm aes = Rijndael.Create();
             switch (_cipherModeName)//CBC/ECB/OFB/CFB/CTS
             {
                 case "CBC":
@@ -193,7 +187,17 @@ namespace HCXT.App.Tools.Util
                 case "ISO10126":
                     aes.Padding = PaddingMode.ISO10126;
                     break;
-            }
+            }            
+        }
+        /// <summary>
+        /// AES加密算法
+        /// </summary>
+        /// <param name="plainText">明文字节数组</param>
+        /// <returns>返回加密后的密文字节数组</returns>
+        public byte[] Encrypt(byte[] plainText)
+        {
+            SymmetricAlgorithm aes = Rijndael.Create();
+            SetMode(aes);
 
             MemoryStream ms = null;
             CryptoStream cs = null;
@@ -231,42 +235,7 @@ namespace HCXT.App.Tools.Util
         public byte[] Decrypt(byte[] cipherText)
         {
             SymmetricAlgorithm aes = Rijndael.Create();
-            switch (_cipherModeName)//CBC/ECB/OFB/CFB/CTS
-            {
-                case "CBC":
-                    aes.Mode = CipherMode.CBC;
-                    break;
-                case "ECB":
-                    aes.Mode = CipherMode.ECB;
-                    break;
-                case "OFB":
-                    aes.Mode = CipherMode.OFB;
-                    break;
-                case "CFB":
-                    aes.Mode = CipherMode.CFB;
-                    break;
-                case "CTS":
-                    aes.Mode = CipherMode.CTS;
-                    break;
-            }
-            switch (_paddingModeName)//None/PKCS7/Zeros/ANSIX923/ISO10126
-            {
-                case "None":
-                    aes.Padding = PaddingMode.None;
-                    break;
-                case "PKCS7":
-                    aes.Padding = PaddingMode.PKCS7;
-                    break;
-                case "Zeros":
-                    aes.Padding = PaddingMode.Zeros;
-                    break;
-                case "ANSIX923":
-                    aes.Padding = PaddingMode.ANSIX923;
-                    break;
-                case "ISO10126":
-                    aes.Padding = PaddingMode.ISO10126;
-                    break;
-            }
+            SetMode(aes);
 
             MemoryStream ms = null;
             CryptoStream cs = null;

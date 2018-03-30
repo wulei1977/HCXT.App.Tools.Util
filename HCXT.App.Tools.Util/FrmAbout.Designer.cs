@@ -40,6 +40,7 @@ namespace HCXT.App.Tools.Util
             this.bottomPanel = new System.Windows.Forms.Panel();
             this.okButton = new System.Windows.Forms.Button();
             this.linkLabel = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.mainPicture)).BeginInit();
             this.bottomPanel.SuspendLayout();
             this.SuspendLayout();
@@ -83,7 +84,7 @@ namespace HCXT.App.Tools.Util
             this.companyNameLabel.AutoSize = true;
             this.companyNameLabel.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.companyNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.companyNameLabel.Location = new System.Drawing.Point(157, 135);
+            this.companyNameLabel.Location = new System.Drawing.Point(157, 117);
             this.companyNameLabel.Name = "companyNameLabel";
             this.companyNameLabel.Size = new System.Drawing.Size(29, 12);
             this.companyNameLabel.TabIndex = 3;
@@ -94,7 +95,7 @@ namespace HCXT.App.Tools.Util
             this.copyrightLabel.AutoSize = true;
             this.copyrightLabel.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.copyrightLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.copyrightLabel.Location = new System.Drawing.Point(157, 150);
+            this.copyrightLabel.Location = new System.Drawing.Point(157, 138);
             this.copyrightLabel.Name = "copyrightLabel";
             this.copyrightLabel.Size = new System.Drawing.Size(197, 12);
             this.copyrightLabel.TabIndex = 4;
@@ -146,7 +147,7 @@ namespace HCXT.App.Tools.Util
             // 
             this.linkLabel.AutoSize = true;
             this.linkLabel.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel.Location = new System.Drawing.Point(157, 176);
+            this.linkLabel.Location = new System.Drawing.Point(157, 160);
             this.linkLabel.Name = "linkLabel";
             this.linkLabel.Size = new System.Drawing.Size(149, 12);
             this.linkLabel.TabIndex = 8;
@@ -154,12 +155,25 @@ namespace HCXT.App.Tools.Util
             this.linkLabel.Text = "http://www.wulei1977.com";
             this.linkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_LinkClicked);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(158, 176);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(143, 12);
+            this.linkLabel1.TabIndex = 8;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "http://www.wulei.net.cn";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_LinkClicked);
+            // 
             // FrmAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(394, 251);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.linkLabel);
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.mainPicture);
@@ -195,6 +209,7 @@ namespace HCXT.App.Tools.Util
         private Panel bottomPanel;
         private Button okButton;
         private LinkLabel linkLabel;
+        private LinkLabel linkLabel1;
 
     }
 }

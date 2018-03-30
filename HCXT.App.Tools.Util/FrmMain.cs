@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Specialized;
 using System.Data.Odbc;
 using System.IO;
 using System.Net;
@@ -138,11 +140,12 @@ namespace HCXT.App.Tools.Util
             StringBuilder sb = new StringBuilder();
             foreach (byte b in md5Byte)
             {
-                int i = Convert.ToInt32(b);
-                int j = i >> 4;
-                sb.Append(Convert.ToString(j, 16));
-                j = ((i << 4) & 0x00ff) >> 4;
-                sb.Append(Convert.ToString(j, 16));
+                sb.Append(Convert.ToString(b, 16));
+                //int i = Convert.ToInt32(b);
+                //int j = i >> 4;
+                //sb.Append(Convert.ToString(j, 16));
+                //j = ((i << 4) & 0x00ff) >> 4;
+                //sb.Append(Convert.ToString(j, 16));
             }
             return sb.ToString();
         }
@@ -618,6 +621,7 @@ namespace HCXT.App.Tools.Util
                         break;
                     txtFtFileName.Text = ofd.FileName;
                     ofd.Dispose();
+                    butFtClick(butFtLoad, e);
                     break;
                 case "butFtLoad":
                 {
@@ -628,6 +632,8 @@ namespace HCXT.App.Tools.Util
                     }
                     var fi = new FileInfo(txtFtFileName.Text);
                     labFtLen.Text = fi.Length.ToString("##,###");
+                    txtFtMd5.Text = GetMd5(fi.FullName, true, null);
+                    txtFtSha1.Text = GetSha1(fi.FullName, true, null, "SHA1");
                     chkFtA.Checked = (fi.Attributes & FileAttributes.Archive) != 0;
                     chkFtS.Checked = (fi.Attributes & FileAttributes.System) != 0;
                     chkFtH.Checked = (fi.Attributes & FileAttributes.Hidden) != 0;
@@ -699,40 +705,79 @@ namespace HCXT.App.Tools.Util
                         break;
                     }
                     var fi = new FileInfo(txtFtFileName.Text);
-                    var vA = chkFtA.Checked ? FileAttributes.Archive : FileAttributes.Normal;
-
-                    if (chkFtA.Checked)
-                        fi.Attributes = fi.Attributes | FileAttributes.Archive;
-                    else
-                        fi.Attributes = fi.Attributes ^ FileAttributes.Archive;
-
-                    chkFtA.Checked = (fi.Attributes & FileAttributes.Archive) != 0;
-                    chkFtS.Checked = (fi.Attributes & FileAttributes.System) != 0;
-                    chkFtH.Checked = (fi.Attributes & FileAttributes.Hidden) != 0;
-                    chkFtR.Checked = (fi.Attributes & FileAttributes.ReadOnly) != 0;
-
+                    //var vA = chkFtA.Checked ? FileAttributes.Archive : FileAttributes.Normal;
+                    fi.Attributes = chkFtA.Checked ? fi.Attributes | FileAttributes.Archive : fi.Attributes & (-1 - FileAttributes.Archive);
+                    fi.Attributes = chkFtS.Checked ? fi.Attributes | FileAttributes.System : fi.Attributes & (-1 - FileAttributes.System);
+                    fi.Attributes = chkFtH.Checked ? fi.Attributes | FileAttributes.Hidden : fi.Attributes & (-1 - FileAttributes.Hidden);
+                    fi.Attributes = chkFtR.Checked ? fi.Attributes | FileAttributes.ReadOnly : fi.Attributes & (-1 - FileAttributes.ReadOnly);
                 }
                     break;
                 case "butFtUpdateCreateTime":
-
+                {
+                    if (!File.Exists(txtFtFileName.Text))
+                    {
+                        MessageBox.Show(string.Format("文件“{0}”不存在！", txtFtFileName.Text));
+                        break;
+                    }
+                    var fi = new FileInfo(txtFtFileName.Text);
+                    fi.CreationTime = dtFtCreateTime.Value;
+                }
                     break;
                 case "butFtUpdateModifyTime":
-
+                    {
+                        if (!File.Exists(txtFtFileName.Text))
+                        {
+                            MessageBox.Show(string.Format("文件“{0}”不存在！", txtFtFileName.Text));
+                            break;
+                        }
+                        var fi = new FileInfo(txtFtFileName.Text);
+                        fi.LastWriteTime = dtFtModifyTime.Value;
+                    }
                     break;
                 case "butFtUpdateAccessTime":
-
+                    {
+                        if (!File.Exists(txtFtFileName.Text))
+                        {
+                            MessageBox.Show(string.Format("文件“{0}”不存在！", txtFtFileName.Text));
+                            break;
+                        }
+                        var fi = new FileInfo(txtFtFileName.Text);
+                        fi.LastAccessTime = dtFtAccessTime.Value;
+                    }
                     break;
             }
         }
 
         private void ButHttpTest_Click(object sender, EventArgs e)
         {
-            if (RadHttpTestGet.Checked)
-                TxtHttpTestResponse.Text = HttpGet(TxtHttpTestUrl.Text);
-            else
-                TxtHttpTestResponse.Text = HttpPost(TxtHttpTestUrl.Text,TxtHttpTestPostData.Text);
+            Hashtable hash = new Hashtable();
+            foreach (ListViewItem lvi in LstHttpTestReqHead.Items)
+                hash.Add(lvi.SubItems[0].Text, lvi.SubItems[1].Text);
+            TxtHttpTestResponse.Text = RadHttpTestGet.Checked
+                ? HttpGet(TxtHttpTestUrl.Text, SelHttpTestContentType.Text, hash)
+                : HttpPost(TxtHttpTestUrl.Text, TxtHttpTestPostData.Text, SelHttpTestContentType.Text, hash);
         }
 
+        private void ButHttpTestReqHeadAdd_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(TxtHttpTestReqHeadKey.Text) || string.IsNullOrEmpty(TxtHttpTestReqHeadVal.Text))
+                return;
+            foreach (ListViewItem lvi in LstHttpTestReqHead.Items)
+                if (lvi.SubItems[0].Text.Equals(TxtHttpTestReqHeadKey.Text))
+                {
+                    MessageBox.Show(string.Format("Key[{0}]已存在！", TxtHttpTestReqHeadKey.Text));
+                    return;
+                }
+            LstHttpTestReqHead.Items.Add(
+                new ListViewItem(new string[] {TxtHttpTestReqHeadKey.Text, TxtHttpTestReqHeadVal.Text}));
+        }
+
+        private void ButHttpTestReqHeadRmv_Click(object sender, EventArgs e)
+        {
+            if (LstHttpTestReqHead.SelectedItems.Count == 0)
+                return;
+            LstHttpTestReqHead.SelectedItems[0].Remove();
+        }
 
 
         /// <summary>
@@ -740,7 +785,7 @@ namespace HCXT.App.Tools.Util
         /// </summary>
         /// <param name="url">请求的URL</param>
         /// <returns></returns>
-        private string HttpGet(string url)
+        private string HttpGet(string url, string contentType, Hashtable httpHeads)
         {
             Stream res = null;
             HttpWebResponse rsp = null;
@@ -748,8 +793,10 @@ namespace HCXT.App.Tools.Util
             {
                 HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
                 req.Method = "GET";
-                req.ContentType = "application/x-www-form-urlencoded";
-
+                req.ContentType = contentType; //"application/x-www-form-urlencoded";
+                SortedList list = new SortedList(httpHeads);
+                foreach (DictionaryEntry item in list)
+                    req.Headers.Add(item.Key.ToString(), item.Value.ToString());
                 rsp = (HttpWebResponse)req.GetResponse();
                 res = rsp.GetResponseStream();
                 byte[] buff = new byte[4096];
@@ -784,7 +831,7 @@ namespace HCXT.App.Tools.Util
         /// <param name="url">请求的URL</param>
         /// <param name="data">Post的数据</param>
         /// <returns></returns>
-        private string HttpPost(string url, string data)
+        private string HttpPost(string url, string data, string contentType, Hashtable httpHeads)
         {
             Stream res = null;
             HttpWebResponse rsp = null;
@@ -794,8 +841,10 @@ namespace HCXT.App.Tools.Util
             {
                 HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
                 req.Method = "POST";
-                req.ContentType = "application/x-www-form-urlencoded";
-
+                req.ContentType = contentType; //"application/x-www-form-urlencoded";
+                SortedList list = new SortedList(httpHeads);
+                foreach (DictionaryEntry item in list)
+                    req.Headers.Add(item.Key.ToString(), item.Value.ToString());
                 sw = req.GetRequestStream();
                 myWriter = new StreamWriter(sw);
                 myWriter.Write(data);
@@ -833,5 +882,6 @@ namespace HCXT.App.Tools.Util
             }
             return "";
         }
+
     }
 }
