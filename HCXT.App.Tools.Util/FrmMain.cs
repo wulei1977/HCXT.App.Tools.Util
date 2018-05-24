@@ -140,12 +140,12 @@ namespace HCXT.App.Tools.Util
             StringBuilder sb = new StringBuilder();
             foreach (byte b in md5Byte)
             {
-                sb.Append(Convert.ToString(b, 16));
-                //int i = Convert.ToInt32(b);
-                //int j = i >> 4;
-                //sb.Append(Convert.ToString(j, 16));
-                //j = ((i << 4) & 0x00ff) >> 4;
-                //sb.Append(Convert.ToString(j, 16));
+                //sb.Append(Convert.ToString(b, 16));
+                int i = Convert.ToInt32(b);
+                int j = i >> 4;
+                sb.Append(Convert.ToString(j, 16));
+                j = ((i << 4) & 0x00ff) >> 4;
+                sb.Append(Convert.ToString(j, 16));
             }
             return sb.ToString();
         }

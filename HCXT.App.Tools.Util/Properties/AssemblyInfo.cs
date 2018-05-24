@@ -29,10 +29,15 @@ using System.Runtime.InteropServices;
 //      内部版本号
 //      修订号
 //
-[assembly: AssemblyVersion("1.0.0.9")]
-[assembly: AssemblyFileVersion("1.2018.0330.2121")]
+[assembly: AssemblyVersion("1.0.0.10")]
+[assembly: AssemblyFileVersion("1.2018.0524.1809")]
 
 // 更新日志
+//
+// 2018-05-24
+//     版 本 号：1.0.0.10
+//     版 本 号：1.2018.0524.1809
+//     更新记录：修复MD5算法最后拼串的Bug。该Bug会导致字节值小于等于F会导致只将字节拼成1位字符，此Bug出现的概率是每字节1/16。
 //
 // 2018-03-30
 //     版 本 号：1.0.0.9
