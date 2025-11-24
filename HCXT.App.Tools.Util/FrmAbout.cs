@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace HCXT.App.Tools.Util
@@ -13,6 +14,8 @@ namespace HCXT.App.Tools.Util
             InitializeComponent();
 
             productVersionLabel.Text = Application.ProductVersion;
+            object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
+            TxtHis.Text = ((AssemblyDescriptionAttribute) attributes[0]).Description;
         }
 
         public FrmAbout(string TopCaption, string Link)

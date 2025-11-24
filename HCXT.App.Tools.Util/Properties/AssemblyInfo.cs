@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // 控制。更改这些属性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("HCXT.App.Tools.Util")]
-[assembly: AssemblyDescription("")]
+//[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("HCXT.App.Tools.Util")]
@@ -29,10 +29,50 @@ using System.Runtime.InteropServices;
 //      内部版本号
 //      修订号
 //
-[assembly: AssemblyVersion("1.0.0.10")]
-[assembly: AssemblyFileVersion("1.2018.0524.1809")]
+[assembly: AssemblyVersion("1.0.1.1")]
+[assembly: AssemblyFileVersion("1.2025.1124.2003")]
 
-// 更新日志
+[assembly: AssemblyDescription(@"// 更新日志
+//
+// 2025-11-24
+//     版 本 号：1.0.1.1
+//     版 本 号：1.2025.1124.2003
+//     更新记录：1、增加HTTP服务功能；
+//               2、完成文件批量替换功能；
+//               3、完成格式化JSON功能；
+//               4、完成格式化XML功能；
+//               5、优化部分代码结构；
+//               6、修复部分已知BUG；
+//
+// 2020-02-27
+//     版 本 号：1.0.0.16
+//     版 本 号：1.2020.0227.1659
+//     更新记录：增加文件分割功能。
+//
+// 2018-08-21
+//     版 本 号：1.0.0.15
+//     版 本 号：1.2018.0821.1230
+//     更新记录：GUID增加格式选择，可选择[D/N/B/P]四种输出格式，默认是D模式。
+//
+// 2018-08-17
+//     版 本 号：1.0.0.14
+//     版 本 号：1.2018.0817.1522
+//     更新记录：HTTP测试增加设置Request和Response的编码集功能。
+//
+// 2018-07-11
+//     版 本 号：1.0.0.13
+//     版 本 号：1.2018.0711.1804
+//     更新记录：HTTP测试增加文件下载功能。
+//
+// 2018-06-26
+//     版 本 号：1.0.0.12
+//     版 本 号：1.2018.0626.2144
+//     更新记录：增加Base64对文件进行编码与解码处理功能。
+//
+// 2018-06-25
+//     版 本 号：1.0.0.11
+//     版 本 号：1.2018.0625.2046
+//     更新记录：增加HTTPS带客户端证书的访问模式。
 //
 // 2018-05-24
 //     版 本 号：1.0.0.10
@@ -82,3 +122,4 @@ using System.Runtime.InteropServices;
 //     版 本 号：1.0.0.2
 //     版 本 号：1.2015.0122.1745
 //     更新记录：增加SHA1、SHA256、SHA384、SHA512哈希算法
+")]

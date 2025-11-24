@@ -30,14 +30,13 @@ namespace HCXT.App.Tools.Util
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbout));
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.topPanel = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.productNameLabel = new System.Windows.Forms.Label();
             this.companyNameLabel = new System.Windows.Forms.Label();
             this.copyrightLabel = new System.Windows.Forms.Label();
             this.productVersionLabel = new System.Windows.Forms.Label();
             this.mainPicture = new System.Windows.Forms.PictureBox();
             this.bottomPanel = new System.Windows.Forms.Panel();
+            this.TxtHis = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.linkLabel = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -45,35 +44,12 @@ namespace HCXT.App.Tools.Util
             this.bottomPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.topPanel});
-            this.shapeContainer1.Size = new System.Drawing.Size(394, 251);
-            this.shapeContainer1.TabIndex = 0;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // topPanel
-            // 
-            this.topPanel.BorderColor = System.Drawing.Color.Transparent;
-            this.topPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(133)))), ((int)(((byte)(148)))));
-            this.topPanel.FillGradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(163)))), ((int)(((byte)(170)))));
-            this.topPanel.FillGradientStyle = Microsoft.VisualBasic.PowerPacks.FillGradientStyle.Horizontal;
-            this.topPanel.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.topPanel.Location = new System.Drawing.Point(-1, -1);
-            this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(398, 50);
-            this.topPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.topPanel_Paint);
-            // 
             // productNameLabel
             // 
             this.productNameLabel.AutoSize = true;
             this.productNameLabel.Font = new System.Drawing.Font("宋体", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.productNameLabel.Location = new System.Drawing.Point(157, 70);
+            this.productNameLabel.Location = new System.Drawing.Point(146, 12);
             this.productNameLabel.Name = "productNameLabel";
             this.productNameLabel.Size = new System.Drawing.Size(105, 13);
             this.productNameLabel.TabIndex = 2;
@@ -84,7 +60,7 @@ namespace HCXT.App.Tools.Util
             this.companyNameLabel.AutoSize = true;
             this.companyNameLabel.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.companyNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.companyNameLabel.Location = new System.Drawing.Point(157, 117);
+            this.companyNameLabel.Location = new System.Drawing.Point(146, 59);
             this.companyNameLabel.Name = "companyNameLabel";
             this.companyNameLabel.Size = new System.Drawing.Size(29, 12);
             this.companyNameLabel.TabIndex = 3;
@@ -95,7 +71,7 @@ namespace HCXT.App.Tools.Util
             this.copyrightLabel.AutoSize = true;
             this.copyrightLabel.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.copyrightLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.copyrightLabel.Location = new System.Drawing.Point(157, 138);
+            this.copyrightLabel.Location = new System.Drawing.Point(146, 80);
             this.copyrightLabel.Name = "copyrightLabel";
             this.copyrightLabel.Size = new System.Drawing.Size(197, 12);
             this.copyrightLabel.TabIndex = 4;
@@ -106,7 +82,7 @@ namespace HCXT.App.Tools.Util
             this.productVersionLabel.AutoSize = true;
             this.productVersionLabel.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productVersionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.productVersionLabel.Location = new System.Drawing.Point(157, 90);
+            this.productVersionLabel.Location = new System.Drawing.Point(146, 32);
             this.productVersionLabel.Name = "productVersionLabel";
             this.productVersionLabel.Size = new System.Drawing.Size(107, 12);
             this.productVersionLabel.TabIndex = 5;
@@ -115,7 +91,7 @@ namespace HCXT.App.Tools.Util
             // mainPicture
             // 
             this.mainPicture.Image = ((System.Drawing.Image)(resources.GetObject("mainPicture.Image")));
-            this.mainPicture.Location = new System.Drawing.Point(23, 70);
+            this.mainPicture.Location = new System.Drawing.Point(12, 12);
             this.mainPicture.Name = "mainPicture";
             this.mainPicture.Size = new System.Drawing.Size(128, 118);
             this.mainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -125,19 +101,31 @@ namespace HCXT.App.Tools.Util
             // bottomPanel
             // 
             this.bottomPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.bottomPanel.Controls.Add(this.TxtHis);
             this.bottomPanel.Controls.Add(this.okButton);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bottomPanel.Location = new System.Drawing.Point(0, 212);
+            this.bottomPanel.Location = new System.Drawing.Point(0, 136);
             this.bottomPanel.Name = "bottomPanel";
-            this.bottomPanel.Size = new System.Drawing.Size(394, 39);
+            this.bottomPanel.Size = new System.Drawing.Size(394, 115);
             this.bottomPanel.TabIndex = 7;
+            // 
+            // TxtHis
+            // 
+            this.TxtHis.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtHis.Location = new System.Drawing.Point(3, 3);
+            this.TxtHis.Multiline = true;
+            this.TxtHis.Name = "TxtHis";
+            this.TxtHis.ReadOnly = true;
+            this.TxtHis.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TxtHis.Size = new System.Drawing.Size(339, 100);
+            this.TxtHis.TabIndex = 1;
             // 
             // okButton
             // 
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(307, 8);
+            this.okButton.Location = new System.Drawing.Point(348, 3);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 21);
+            this.okButton.Size = new System.Drawing.Size(43, 100);
             this.okButton.TabIndex = 0;
             this.okButton.Text = "&OK";
             this.okButton.UseVisualStyleBackColor = true;
@@ -147,7 +135,7 @@ namespace HCXT.App.Tools.Util
             // 
             this.linkLabel.AutoSize = true;
             this.linkLabel.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel.Location = new System.Drawing.Point(157, 160);
+            this.linkLabel.Location = new System.Drawing.Point(146, 102);
             this.linkLabel.Name = "linkLabel";
             this.linkLabel.Size = new System.Drawing.Size(149, 12);
             this.linkLabel.TabIndex = 8;
@@ -159,7 +147,7 @@ namespace HCXT.App.Tools.Util
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(158, 176);
+            this.linkLabel1.Location = new System.Drawing.Point(147, 118);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(143, 12);
             this.linkLabel1.TabIndex = 8;
@@ -181,7 +169,6 @@ namespace HCXT.App.Tools.Util
             this.Controls.Add(this.copyrightLabel);
             this.Controls.Add(this.companyNameLabel);
             this.Controls.Add(this.productNameLabel);
-            this.Controls.Add(this.shapeContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -192,6 +179,7 @@ namespace HCXT.App.Tools.Util
             this.Text = "关于小工具";
             ((System.ComponentModel.ISupportInitialize)(this.mainPicture)).EndInit();
             this.bottomPanel.ResumeLayout(false);
+            this.bottomPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,8 +187,7 @@ namespace HCXT.App.Tools.Util
 
         #endregion
 
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.RectangleShape topPanel;
+
         private Label productNameLabel;
         private Label companyNameLabel;
         private Label copyrightLabel;
@@ -210,6 +197,7 @@ namespace HCXT.App.Tools.Util
         private Button okButton;
         private LinkLabel linkLabel;
         private LinkLabel linkLabel1;
+        private TextBox TxtHis;
 
     }
 }

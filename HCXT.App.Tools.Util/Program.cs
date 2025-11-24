@@ -17,6 +17,19 @@ namespace HCXT.App.Tools.Util
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMain());
+
+            //var tel = "";
+            //MessageBox.Show(string.Format("IsDig({0})={1}", tel, IsDig(tel)));
+        }
+
+        private static bool IsDig(string str)
+        {
+            if(string.IsNullOrEmpty(str))
+                return false;
+            foreach (char c in str)
+                if (c < '0' || c > '9')
+                    return false;
+            return true;
         }
     }
 }
