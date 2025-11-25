@@ -319,6 +319,7 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
+            this.butEmailSend = new System.Windows.Forms.Button();
             this.tpHttpServer = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel43 = new System.Windows.Forms.TableLayoutPanel();
             this.label78 = new System.Windows.Forms.Label();
@@ -340,7 +341,9 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.butEmailSend = new System.Windows.Forms.Button();
+            this.ChkHttpServPhp = new System.Windows.Forms.CheckBox();
+            this.TxtHttpServPhpPath = new System.Windows.Forms.TextBox();
+            this.ButHttpServBrowsePhp = new System.Windows.Forms.Button();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
@@ -622,7 +625,7 @@
             this.tpAes.Location = new System.Drawing.Point(4, 22);
             this.tpAes.Name = "tpAes";
             this.tpAes.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAes.Size = new System.Drawing.Size(782, 349);
+            this.tpAes.Size = new System.Drawing.Size(786, 349);
             this.tpAes.TabIndex = 6;
             this.tpAes.Text = "AES加密";
             this.tpAes.UseVisualStyleBackColor = true;
@@ -653,7 +656,7 @@
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(776, 343);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(780, 343);
             this.tableLayoutPanel14.TabIndex = 0;
             // 
             // txtAesObj
@@ -665,7 +668,7 @@
             this.txtAesObj.Multiline = true;
             this.txtAesObj.Name = "txtAesObj";
             this.txtAesObj.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtAesObj.Size = new System.Drawing.Size(650, 106);
+            this.txtAesObj.Size = new System.Drawing.Size(654, 106);
             this.txtAesObj.TabIndex = 4;
             // 
             // txtAesSrc
@@ -677,7 +680,7 @@
             this.txtAesSrc.Multiline = true;
             this.txtAesSrc.Name = "txtAesSrc";
             this.txtAesSrc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtAesSrc.Size = new System.Drawing.Size(650, 105);
+            this.txtAesSrc.Size = new System.Drawing.Size(654, 105);
             this.txtAesSrc.TabIndex = 3;
             // 
             // tableLayoutPanel15
@@ -693,7 +696,7 @@
             this.tableLayoutPanel15.Controls.Add(this.radAesHex, 1, 0);
             this.tableLayoutPanel15.Controls.Add(this.butAesEncode, 2, 0);
             this.tableLayoutPanel15.Controls.Add(this.butAesDecode, 3, 0);
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(226, 201);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(228, 201);
             this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
@@ -831,14 +834,14 @@
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(656, 30);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(660, 30);
             this.tableLayoutPanel19.TabIndex = 11;
             // 
             // label23
             // 
             this.label23.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(539, 9);
+            this.label23.Location = new System.Drawing.Point(543, 9);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(107, 12);
             this.label23.TabIndex = 6;
@@ -850,7 +853,7 @@
             this.txtAesKey.Location = new System.Drawing.Point(3, 3);
             this.txtAesKey.MaxLength = 32;
             this.txtAesKey.Name = "txtAesKey";
-            this.txtAesKey.Size = new System.Drawing.Size(530, 21);
+            this.txtAesKey.Size = new System.Drawing.Size(534, 21);
             this.txtAesKey.TabIndex = 8;
             // 
             // tableLayoutPanel20
@@ -866,14 +869,14 @@
             this.tableLayoutPanel20.Name = "tableLayoutPanel20";
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(656, 30);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(660, 30);
             this.tableLayoutPanel20.TabIndex = 12;
             // 
             // label24
             // 
             this.label24.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(539, 9);
+            this.label24.Location = new System.Drawing.Point(543, 9);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(83, 12);
             this.label24.TabIndex = 6;
@@ -885,7 +888,7 @@
             this.txtAesVI.Location = new System.Drawing.Point(3, 3);
             this.txtAesVI.MaxLength = 16;
             this.txtAesVI.Name = "txtAesVI";
-            this.txtAesVI.Size = new System.Drawing.Size(530, 21);
+            this.txtAesVI.Size = new System.Drawing.Size(534, 21);
             this.txtAesVI.TabIndex = 9;
             // 
             // label31
@@ -914,14 +917,14 @@
             this.tableLayoutPanel24.RowCount = 1;
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel24.Size = new System.Drawing.Size(656, 30);
+            this.tableLayoutPanel24.Size = new System.Drawing.Size(660, 30);
             this.tableLayoutPanel24.TabIndex = 14;
             // 
             // label32
             // 
             this.label32.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(320, 9);
+            this.label32.Location = new System.Drawing.Point(322, 9);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(65, 12);
             this.label32.TabIndex = 0;
@@ -940,7 +943,7 @@
             "CTS"});
             this.cbCipherMode.Location = new System.Drawing.Point(3, 3);
             this.cbCipherMode.Name = "cbCipherMode";
-            this.cbCipherMode.Size = new System.Drawing.Size(262, 20);
+            this.cbCipherMode.Size = new System.Drawing.Size(264, 20);
             this.cbCipherMode.TabIndex = 1;
             // 
             // cbPaddingMode
@@ -954,9 +957,9 @@
             "Zeros",
             "ANSIX923",
             "ISO10126"});
-            this.cbPaddingMode.Location = new System.Drawing.Point(391, 3);
+            this.cbPaddingMode.Location = new System.Drawing.Point(393, 3);
             this.cbPaddingMode.Name = "cbPaddingMode";
-            this.cbPaddingMode.Size = new System.Drawing.Size(262, 20);
+            this.cbPaddingMode.Size = new System.Drawing.Size(264, 20);
             this.cbPaddingMode.TabIndex = 2;
             // 
             // tpDes
@@ -965,7 +968,7 @@
             this.tpDes.Location = new System.Drawing.Point(4, 22);
             this.tpDes.Name = "tpDes";
             this.tpDes.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDes.Size = new System.Drawing.Size(782, 349);
+            this.tpDes.Size = new System.Drawing.Size(786, 349);
             this.tpDes.TabIndex = 4;
             this.tpDes.Text = "DES加密";
             this.tpDes.UseVisualStyleBackColor = true;
@@ -994,7 +997,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(776, 343);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(780, 343);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // txtDesObj
@@ -1006,7 +1009,7 @@
             this.txtDesObj.Multiline = true;
             this.txtDesObj.Name = "txtDesObj";
             this.txtDesObj.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDesObj.Size = new System.Drawing.Size(650, 121);
+            this.txtDesObj.Size = new System.Drawing.Size(654, 121);
             this.txtDesObj.TabIndex = 4;
             // 
             // txtDesSrc
@@ -1018,7 +1021,7 @@
             this.txtDesSrc.Multiline = true;
             this.txtDesSrc.Name = "txtDesSrc";
             this.txtDesSrc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDesSrc.Size = new System.Drawing.Size(650, 120);
+            this.txtDesSrc.Size = new System.Drawing.Size(654, 120);
             this.txtDesSrc.TabIndex = 3;
             // 
             // tableLayoutPanel9
@@ -1034,7 +1037,7 @@
             this.tableLayoutPanel9.Controls.Add(this.radDesHex, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.butDesEncode, 2, 0);
             this.tableLayoutPanel9.Controls.Add(this.butDesDecode, 3, 0);
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(226, 186);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(228, 186);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
@@ -1171,14 +1174,14 @@
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 1;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(656, 30);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(660, 30);
             this.tableLayoutPanel17.TabIndex = 11;
             // 
             // label21
             // 
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(539, 9);
+            this.label21.Location = new System.Drawing.Point(543, 9);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(77, 12);
             this.label21.TabIndex = 0;
@@ -1190,7 +1193,7 @@
             this.txtDesKey.Location = new System.Drawing.Point(3, 3);
             this.txtDesKey.MaxLength = 8;
             this.txtDesKey.Name = "txtDesKey";
-            this.txtDesKey.Size = new System.Drawing.Size(530, 21);
+            this.txtDesKey.Size = new System.Drawing.Size(534, 21);
             this.txtDesKey.TabIndex = 8;
             // 
             // tableLayoutPanel18
@@ -1206,14 +1209,14 @@
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
             this.tableLayoutPanel18.RowCount = 1;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(656, 30);
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(660, 30);
             this.tableLayoutPanel18.TabIndex = 12;
             // 
             // label22
             // 
             this.label22.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(539, 9);
+            this.label22.Location = new System.Drawing.Point(543, 9);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(77, 12);
             this.label22.TabIndex = 0;
@@ -1225,7 +1228,7 @@
             this.txtDesVI.Location = new System.Drawing.Point(3, 3);
             this.txtDesVI.MaxLength = 8;
             this.txtDesVI.Name = "txtDesVI";
-            this.txtDesVI.Size = new System.Drawing.Size(530, 21);
+            this.txtDesVI.Size = new System.Drawing.Size(534, 21);
             this.txtDesVI.TabIndex = 9;
             // 
             // tpRTF
@@ -1233,7 +1236,7 @@
             this.tpRTF.Controls.Add(this.tableLayoutPanel5);
             this.tpRTF.Location = new System.Drawing.Point(4, 22);
             this.tpRTF.Name = "tpRTF";
-            this.tpRTF.Size = new System.Drawing.Size(782, 349);
+            this.tpRTF.Size = new System.Drawing.Size(786, 349);
             this.tpRTF.TabIndex = 3;
             this.tpRTF.Text = "RTF编码";
             this.tpRTF.UseVisualStyleBackColor = true;
@@ -1255,7 +1258,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(782, 349);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(786, 349);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // label6
@@ -1286,7 +1289,7 @@
             this.txtRTF.Multiline = true;
             this.txtRTF.Name = "txtRTF";
             this.txtRTF.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtRTF.Size = new System.Drawing.Size(696, 186);
+            this.txtRTF.Size = new System.Drawing.Size(700, 186);
             this.txtRTF.TabIndex = 4;
             // 
             // tableLayoutPanel6
@@ -1302,13 +1305,13 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(702, 30);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(706, 30);
             this.tableLayoutPanel6.TabIndex = 5;
             // 
             // butRTFEncode
             // 
             this.butRTFEncode.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butRTFEncode.Location = new System.Drawing.Point(138, 3);
+            this.butRTFEncode.Location = new System.Drawing.Point(139, 3);
             this.butRTFEncode.Name = "butRTFEncode";
             this.butRTFEncode.Size = new System.Drawing.Size(75, 23);
             this.butRTFEncode.TabIndex = 0;
@@ -1319,7 +1322,7 @@
             // butRTFDecode
             // 
             this.butRTFDecode.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butRTFDecode.Location = new System.Drawing.Point(489, 3);
+            this.butRTFDecode.Location = new System.Drawing.Point(492, 3);
             this.butRTFDecode.Name = "butRTFDecode";
             this.butRTFDecode.Size = new System.Drawing.Size(75, 23);
             this.butRTFDecode.TabIndex = 1;
@@ -1333,7 +1336,7 @@
             this.rtRTF.Location = new System.Drawing.Point(83, 3);
             this.rtRTF.Name = "rtRTF";
             this.rtRTF.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.rtRTF.Size = new System.Drawing.Size(696, 121);
+            this.rtRTF.Size = new System.Drawing.Size(700, 121);
             this.rtRTF.TabIndex = 6;
             this.rtRTF.Text = "";
             // 
@@ -1343,7 +1346,7 @@
             this.tpBase64.Location = new System.Drawing.Point(4, 22);
             this.tpBase64.Name = "tpBase64";
             this.tpBase64.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBase64.Size = new System.Drawing.Size(782, 349);
+            this.tpBase64.Size = new System.Drawing.Size(786, 349);
             this.tpBase64.TabIndex = 2;
             this.tpBase64.Text = "生成Base64";
             this.tpBase64.UseVisualStyleBackColor = true;
@@ -1369,7 +1372,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(776, 343);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(780, 343);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // label5
@@ -1390,7 +1393,7 @@
             this.txtBase64Src.Multiline = true;
             this.txtBase64Src.Name = "txtBase64Src";
             this.txtBase64Src.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBase64Src.Size = new System.Drawing.Size(690, 107);
+            this.txtBase64Src.Size = new System.Drawing.Size(694, 107);
             this.txtBase64Src.TabIndex = 2;
             // 
             // txtBase64Obj
@@ -1401,7 +1404,7 @@
             this.txtBase64Obj.Multiline = true;
             this.txtBase64Obj.Name = "txtBase64Obj";
             this.txtBase64Obj.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBase64Obj.Size = new System.Drawing.Size(690, 164);
+            this.txtBase64Obj.Size = new System.Drawing.Size(694, 164);
             this.txtBase64Obj.TabIndex = 4;
             // 
             // tableLayoutPanel4
@@ -1417,13 +1420,13 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(696, 30);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(700, 30);
             this.tableLayoutPanel4.TabIndex = 5;
             // 
             // butBase64Encode
             // 
             this.butBase64Encode.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butBase64Encode.Location = new System.Drawing.Point(136, 3);
+            this.butBase64Encode.Location = new System.Drawing.Point(137, 3);
             this.butBase64Encode.Name = "butBase64Encode";
             this.butBase64Encode.Size = new System.Drawing.Size(75, 23);
             this.butBase64Encode.TabIndex = 0;
@@ -1434,7 +1437,7 @@
             // butBase64Decode
             // 
             this.butBase64Decode.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butBase64Decode.Location = new System.Drawing.Point(484, 3);
+            this.butBase64Decode.Location = new System.Drawing.Point(487, 3);
             this.butBase64Decode.Name = "butBase64Decode";
             this.butBase64Decode.Size = new System.Drawing.Size(75, 23);
             this.butBase64Decode.TabIndex = 1;
@@ -1469,7 +1472,7 @@
             this.tableLayoutPanel36.RowCount = 1;
             this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel36.Size = new System.Drawing.Size(696, 30);
+            this.tableLayoutPanel36.Size = new System.Drawing.Size(700, 30);
             this.tableLayoutPanel36.TabIndex = 8;
             // 
             // TxtBase64File
@@ -1477,12 +1480,12 @@
             this.TxtBase64File.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtBase64File.Location = new System.Drawing.Point(3, 3);
             this.TxtBase64File.Name = "TxtBase64File";
-            this.TxtBase64File.Size = new System.Drawing.Size(600, 21);
+            this.TxtBase64File.Size = new System.Drawing.Size(604, 21);
             this.TxtBase64File.TabIndex = 0;
             // 
             // ButBase64Browse
             // 
-            this.ButBase64Browse.Location = new System.Drawing.Point(609, 3);
+            this.ButBase64Browse.Location = new System.Drawing.Point(613, 3);
             this.ButBase64Browse.Name = "ButBase64Browse";
             this.ButBase64Browse.Size = new System.Drawing.Size(74, 23);
             this.ButBase64Browse.TabIndex = 1;
@@ -1520,7 +1523,7 @@
             this.tpMD5.Location = new System.Drawing.Point(4, 22);
             this.tpMD5.Name = "tpMD5";
             this.tpMD5.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMD5.Size = new System.Drawing.Size(782, 349);
+            this.tpMD5.Size = new System.Drawing.Size(786, 349);
             this.tpMD5.TabIndex = 1;
             this.tpMD5.Text = "生成MD5";
             this.tpMD5.UseVisualStyleBackColor = true;
@@ -1549,7 +1552,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(776, 343);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(780, 343);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // radMd5Txt
@@ -1601,7 +1604,7 @@
             this.txtMd5Src.Multiline = true;
             this.txtMd5Src.Name = "txtMd5Src";
             this.txtMd5Src.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMd5Src.Size = new System.Drawing.Size(690, 217);
+            this.txtMd5Src.Size = new System.Drawing.Size(694, 217);
             this.txtMd5Src.TabIndex = 2;
             // 
             // txtMd5
@@ -1612,7 +1615,7 @@
             this.txtMd5.Multiline = true;
             this.txtMd5.Name = "txtMd5";
             this.txtMd5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMd5.Size = new System.Drawing.Size(690, 54);
+            this.txtMd5.Size = new System.Drawing.Size(694, 54);
             this.txtMd5.TabIndex = 3;
             // 
             // label8
@@ -1631,14 +1634,14 @@
             this.txtMd5SrcFile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMd5SrcFile.Location = new System.Drawing.Point(83, 226);
             this.txtMd5SrcFile.Name = "txtMd5SrcFile";
-            this.txtMd5SrcFile.Size = new System.Drawing.Size(610, 21);
+            this.txtMd5SrcFile.Size = new System.Drawing.Size(614, 21);
             this.txtMd5SrcFile.TabIndex = 5;
             this.txtMd5SrcFile.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtMd5SrcFile_DragDrop);
             // 
             // butMd5Browse
             // 
             this.butMd5Browse.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butMd5Browse.Location = new System.Drawing.Point(699, 226);
+            this.butMd5Browse.Location = new System.Drawing.Point(703, 226);
             this.butMd5Browse.Name = "butMd5Browse";
             this.butMd5Browse.Size = new System.Drawing.Size(74, 23);
             this.butMd5Browse.TabIndex = 6;
@@ -1649,7 +1652,7 @@
             // butMd5
             // 
             this.butMd5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butMd5.Location = new System.Drawing.Point(350, 256);
+            this.butMd5.Location = new System.Drawing.Point(352, 256);
             this.butMd5.Name = "butMd5";
             this.butMd5.Size = new System.Drawing.Size(75, 23);
             this.butMd5.TabIndex = 7;
@@ -1663,7 +1666,7 @@
             this.tpGetGUID.Location = new System.Drawing.Point(4, 22);
             this.tpGetGUID.Name = "tpGetGUID";
             this.tpGetGUID.Padding = new System.Windows.Forms.Padding(3);
-            this.tpGetGUID.Size = new System.Drawing.Size(786, 349);
+            this.tpGetGUID.Size = new System.Drawing.Size(794, 349);
             this.tpGetGUID.TabIndex = 0;
             this.tpGetGUID.Text = "生成GUID";
             this.tpGetGUID.UseVisualStyleBackColor = true;
@@ -1688,7 +1691,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(780, 343);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(788, 343);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -1742,7 +1745,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(660, 30);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(668, 30);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // radGUIDLower
@@ -1824,14 +1827,14 @@
             this.txtGUIDResult.Multiline = true;
             this.txtGUIDResult.Name = "txtGUIDResult";
             this.txtGUIDResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtGUIDResult.Size = new System.Drawing.Size(654, 247);
+            this.txtGUIDResult.Size = new System.Drawing.Size(662, 247);
             this.txtGUIDResult.TabIndex = 5;
             // 
             // butGetGUID
             // 
             this.butGetGUID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.SetColumnSpan(this.butGetGUID, 2);
-            this.butGetGUID.Location = new System.Drawing.Point(352, 316);
+            this.butGetGUID.Location = new System.Drawing.Point(356, 316);
             this.butGetGUID.Name = "butGetGUID";
             this.butGetGUID.Size = new System.Drawing.Size(75, 23);
             this.butGetGUID.TabIndex = 6;
@@ -1862,7 +1865,7 @@
             this.tcMain.Location = new System.Drawing.Point(0, 0);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(794, 375);
+            this.tcMain.Size = new System.Drawing.Size(802, 375);
             this.tcMain.TabIndex = 0;
             // 
             // tpSHA1
@@ -1870,7 +1873,7 @@
             this.tpSHA1.Controls.Add(this.tableLayoutPanel26);
             this.tpSHA1.Location = new System.Drawing.Point(4, 22);
             this.tpSHA1.Name = "tpSHA1";
-            this.tpSHA1.Size = new System.Drawing.Size(782, 349);
+            this.tpSHA1.Size = new System.Drawing.Size(786, 349);
             this.tpSHA1.TabIndex = 9;
             this.tpSHA1.Text = "生成SHA1";
             this.tpSHA1.UseVisualStyleBackColor = true;
@@ -1900,7 +1903,7 @@
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(782, 349);
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(786, 349);
             this.tableLayoutPanel26.TabIndex = 0;
             // 
             // radSha1Txt
@@ -1938,7 +1941,7 @@
             this.txtSha1Src.Multiline = true;
             this.txtSha1Src.Name = "txtSha1Src";
             this.txtSha1Src.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSha1Src.Size = new System.Drawing.Size(696, 223);
+            this.txtSha1Src.Size = new System.Drawing.Size(700, 223);
             this.txtSha1Src.TabIndex = 2;
             // 
             // txtSha1SrcFile
@@ -1946,13 +1949,13 @@
             this.txtSha1SrcFile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSha1SrcFile.Location = new System.Drawing.Point(83, 232);
             this.txtSha1SrcFile.Name = "txtSha1SrcFile";
-            this.txtSha1SrcFile.Size = new System.Drawing.Size(616, 21);
+            this.txtSha1SrcFile.Size = new System.Drawing.Size(620, 21);
             this.txtSha1SrcFile.TabIndex = 3;
             // 
             // butSha1Browse
             // 
             this.butSha1Browse.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butSha1Browse.Location = new System.Drawing.Point(705, 232);
+            this.butSha1Browse.Location = new System.Drawing.Point(709, 232);
             this.butSha1Browse.Name = "butSha1Browse";
             this.butSha1Browse.Size = new System.Drawing.Size(74, 23);
             this.butSha1Browse.TabIndex = 4;
@@ -1992,13 +1995,13 @@
             this.txtSha1.Multiline = true;
             this.txtSha1.Name = "txtSha1";
             this.txtSha1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSha1.Size = new System.Drawing.Size(696, 54);
+            this.txtSha1.Size = new System.Drawing.Size(700, 54);
             this.txtSha1.TabIndex = 8;
             // 
             // butSha1
             // 
             this.butSha1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butSha1.Location = new System.Drawing.Point(353, 262);
+            this.butSha1.Location = new System.Drawing.Point(355, 262);
             this.butSha1.Name = "butSha1";
             this.butSha1.Size = new System.Drawing.Size(75, 23);
             this.butSha1.TabIndex = 6;
@@ -2016,7 +2019,7 @@
             "SHA256",
             "SHA384",
             "SHA512"});
-            this.cbSha1Type.Location = new System.Drawing.Point(705, 264);
+            this.cbSha1Type.Location = new System.Drawing.Point(709, 264);
             this.cbSha1Type.Name = "cbSha1Type";
             this.cbSha1Type.Size = new System.Drawing.Size(74, 20);
             this.cbSha1Type.TabIndex = 9;
@@ -2027,7 +2030,7 @@
             this.tpRsa.Location = new System.Drawing.Point(4, 22);
             this.tpRsa.Name = "tpRsa";
             this.tpRsa.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRsa.Size = new System.Drawing.Size(782, 349);
+            this.tpRsa.Size = new System.Drawing.Size(786, 349);
             this.tpRsa.TabIndex = 10;
             this.tpRsa.Text = "RSA加密";
             this.tpRsa.UseVisualStyleBackColor = true;
@@ -2057,7 +2060,7 @@
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel27.Size = new System.Drawing.Size(776, 343);
+            this.tableLayoutPanel27.Size = new System.Drawing.Size(780, 343);
             this.tableLayoutPanel27.TabIndex = 0;
             // 
             // txtRsaSrc
@@ -2067,7 +2070,7 @@
             this.txtRsaSrc.Multiline = true;
             this.txtRsaSrc.Name = "txtRsaSrc";
             this.txtRsaSrc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtRsaSrc.Size = new System.Drawing.Size(650, 70);
+            this.txtRsaSrc.Size = new System.Drawing.Size(654, 70);
             this.txtRsaSrc.TabIndex = 0;
             // 
             // txtRsaObj
@@ -2077,7 +2080,7 @@
             this.txtRsaObj.Multiline = true;
             this.txtRsaObj.Name = "txtRsaObj";
             this.txtRsaObj.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtRsaObj.Size = new System.Drawing.Size(650, 70);
+            this.txtRsaObj.Size = new System.Drawing.Size(654, 70);
             this.txtRsaObj.TabIndex = 0;
             // 
             // tableLayoutPanel28
@@ -2097,13 +2100,13 @@
             this.tableLayoutPanel28.Name = "tableLayoutPanel28";
             this.tableLayoutPanel28.RowCount = 1;
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(656, 30);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(660, 30);
             this.tableLayoutPanel28.TabIndex = 1;
             // 
             // butRsaEncrypt
             // 
             this.butRsaEncrypt.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butRsaEncrypt.Location = new System.Drawing.Point(44, 3);
+            this.butRsaEncrypt.Location = new System.Drawing.Point(45, 3);
             this.butRsaEncrypt.Name = "butRsaEncrypt";
             this.butRsaEncrypt.Size = new System.Drawing.Size(75, 23);
             this.butRsaEncrypt.TabIndex = 0;
@@ -2114,7 +2117,7 @@
             // butRsaDecrypt
             // 
             this.butRsaDecrypt.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butRsaDecrypt.Location = new System.Drawing.Point(208, 3);
+            this.butRsaDecrypt.Location = new System.Drawing.Point(210, 3);
             this.butRsaDecrypt.Name = "butRsaDecrypt";
             this.butRsaDecrypt.Size = new System.Drawing.Size(75, 23);
             this.butRsaDecrypt.TabIndex = 0;
@@ -2125,7 +2128,7 @@
             // butRsaNew
             // 
             this.butRsaNew.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butRsaNew.Location = new System.Drawing.Point(372, 3);
+            this.butRsaNew.Location = new System.Drawing.Point(375, 3);
             this.butRsaNew.Name = "butRsaNew";
             this.butRsaNew.Size = new System.Drawing.Size(75, 23);
             this.butRsaNew.TabIndex = 1;
@@ -2136,7 +2139,7 @@
             // butRsaExport
             // 
             this.butRsaExport.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butRsaExport.Location = new System.Drawing.Point(536, 3);
+            this.butRsaExport.Location = new System.Drawing.Point(540, 3);
             this.butRsaExport.Name = "butRsaExport";
             this.butRsaExport.Size = new System.Drawing.Size(75, 23);
             this.butRsaExport.TabIndex = 1;
@@ -2191,7 +2194,7 @@
             this.txtRsaPk.Multiline = true;
             this.txtRsaPk.Name = "txtRsaPk";
             this.txtRsaPk.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtRsaPk.Size = new System.Drawing.Size(650, 64);
+            this.txtRsaPk.Size = new System.Drawing.Size(654, 64);
             this.txtRsaPk.TabIndex = 3;
             this.txtRsaPk.Text = resources.GetString("txtRsaPk.Text");
             // 
@@ -2202,7 +2205,7 @@
             this.txtRsaSk.Multiline = true;
             this.txtRsaSk.Name = "txtRsaSk";
             this.txtRsaSk.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtRsaSk.Size = new System.Drawing.Size(650, 64);
+            this.txtRsaSk.Size = new System.Drawing.Size(654, 64);
             this.txtRsaSk.TabIndex = 3;
             this.txtRsaSk.Text = resources.GetString("txtRsaSk.Text");
             // 
@@ -2221,7 +2224,7 @@
             this.tpReplace.Controls.Add(this.tableLayoutPanel21);
             this.tpReplace.Location = new System.Drawing.Point(4, 22);
             this.tpReplace.Name = "tpReplace";
-            this.tpReplace.Size = new System.Drawing.Size(782, 349);
+            this.tpReplace.Size = new System.Drawing.Size(786, 349);
             this.tpReplace.TabIndex = 7;
             this.tpReplace.Text = "文件批量替换";
             this.tpReplace.UseVisualStyleBackColor = true;
@@ -2255,7 +2258,7 @@
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(782, 349);
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(786, 349);
             this.tableLayoutPanel21.TabIndex = 0;
             // 
             // label25
@@ -2301,7 +2304,7 @@
             this.tableLayoutPanel22.Name = "tableLayoutPanel22";
             this.tableLayoutPanel22.RowCount = 1;
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(662, 25);
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(666, 25);
             this.tableLayoutPanel22.TabIndex = 2;
             // 
             // txtReplaceFolder
@@ -2309,13 +2312,13 @@
             this.txtReplaceFolder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtReplaceFolder.Location = new System.Drawing.Point(3, 3);
             this.txtReplaceFolder.Name = "txtReplaceFolder";
-            this.txtReplaceFolder.Size = new System.Drawing.Size(576, 21);
+            this.txtReplaceFolder.Size = new System.Drawing.Size(580, 21);
             this.txtReplaceFolder.TabIndex = 1;
             // 
             // butReplaceFolderBrowse
             // 
             this.butReplaceFolderBrowse.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butReplaceFolderBrowse.Location = new System.Drawing.Point(585, 3);
+            this.butReplaceFolderBrowse.Location = new System.Drawing.Point(589, 3);
             this.butReplaceFolderBrowse.Name = "butReplaceFolderBrowse";
             this.butReplaceFolderBrowse.Size = new System.Drawing.Size(74, 19);
             this.butReplaceFolderBrowse.TabIndex = 2;
@@ -2346,7 +2349,7 @@
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
             this.tableLayoutPanel23.RowCount = 1;
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(662, 25);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(666, 25);
             this.tableLayoutPanel23.TabIndex = 4;
             // 
             // txtReplaceFilter
@@ -2354,7 +2357,7 @@
             this.txtReplaceFilter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtReplaceFilter.Location = new System.Drawing.Point(3, 3);
             this.txtReplaceFilter.Name = "txtReplaceFilter";
-            this.txtReplaceFilter.Size = new System.Drawing.Size(506, 21);
+            this.txtReplaceFilter.Size = new System.Drawing.Size(510, 21);
             this.txtReplaceFilter.TabIndex = 3;
             this.txtReplaceFilter.Text = "*.txt|*.htm|*.aspx|*.cs|*.js|*.xml";
             // 
@@ -2362,7 +2365,7 @@
             // 
             this.label29.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(515, 6);
+            this.label29.Location = new System.Drawing.Point(519, 6);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(137, 12);
             this.label29.TabIndex = 0;
@@ -2375,7 +2378,7 @@
             this.txtReplaceFrom.Multiline = true;
             this.txtReplaceFrom.Name = "txtReplaceFrom";
             this.txtReplaceFrom.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtReplaceFrom.Size = new System.Drawing.Size(656, 44);
+            this.txtReplaceFrom.Size = new System.Drawing.Size(660, 44);
             this.txtReplaceFrom.TabIndex = 5;
             // 
             // txtReplaceTo
@@ -2385,7 +2388,7 @@
             this.txtReplaceTo.Multiline = true;
             this.txtReplaceTo.Name = "txtReplaceTo";
             this.txtReplaceTo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtReplaceTo.Size = new System.Drawing.Size(656, 44);
+            this.txtReplaceTo.Size = new System.Drawing.Size(660, 44);
             this.txtReplaceTo.TabIndex = 5;
             // 
             // label30
@@ -2405,7 +2408,7 @@
             this.txtReplaceHistory.Multiline = true;
             this.txtReplaceHistory.Name = "txtReplaceHistory";
             this.txtReplaceHistory.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtReplaceHistory.Size = new System.Drawing.Size(656, 138);
+            this.txtReplaceHistory.Size = new System.Drawing.Size(660, 138);
             this.txtReplaceHistory.TabIndex = 7;
             // 
             // label43
@@ -2443,13 +2446,13 @@
             this.tableLayoutPanel44.Name = "tableLayoutPanel44";
             this.tableLayoutPanel44.RowCount = 1;
             this.tableLayoutPanel44.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel44.Size = new System.Drawing.Size(782, 30);
+            this.tableLayoutPanel44.Size = new System.Drawing.Size(786, 30);
             this.tableLayoutPanel44.TabIndex = 9;
             // 
             // butReplace
             // 
             this.butReplace.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butReplace.Location = new System.Drawing.Point(293, 3);
+            this.butReplace.Location = new System.Drawing.Point(295, 3);
             this.butReplace.Name = "butReplace";
             this.butReplace.Size = new System.Drawing.Size(75, 23);
             this.butReplace.TabIndex = 6;
@@ -2461,7 +2464,7 @@
             // 
             this.chkReplaceRecurse.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.chkReplaceRecurse.AutoSize = true;
-            this.chkReplaceRecurse.Location = new System.Drawing.Point(397, 7);
+            this.chkReplaceRecurse.Location = new System.Drawing.Point(399, 7);
             this.chkReplaceRecurse.Name = "chkReplaceRecurse";
             this.chkReplaceRecurse.Size = new System.Drawing.Size(108, 16);
             this.chkReplaceRecurse.TabIndex = 7;
@@ -2474,7 +2477,7 @@
             this.tpEncodingTrans.Location = new System.Drawing.Point(4, 22);
             this.tpEncodingTrans.Name = "tpEncodingTrans";
             this.tpEncodingTrans.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEncodingTrans.Size = new System.Drawing.Size(782, 349);
+            this.tpEncodingTrans.Size = new System.Drawing.Size(786, 349);
             this.tpEncodingTrans.TabIndex = 8;
             this.tpEncodingTrans.Text = "文件转码";
             this.tpEncodingTrans.UseVisualStyleBackColor = true;
@@ -2509,7 +2512,7 @@
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(776, 343);
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(780, 343);
             this.tableLayoutPanel25.TabIndex = 0;
             // 
             // label33
@@ -2526,7 +2529,7 @@
             // 
             this.label34.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(464, 6);
+            this.label34.Location = new System.Drawing.Point(466, 6);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(41, 12);
             this.label34.TabIndex = 0;
@@ -2537,16 +2540,16 @@
             this.txtEftInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtEftInput.Location = new System.Drawing.Point(83, 3);
             this.txtEftInput.Name = "txtEftInput";
-            this.txtEftInput.Size = new System.Drawing.Size(262, 21);
+            this.txtEftInput.Size = new System.Drawing.Size(264, 21);
             this.txtEftInput.TabIndex = 1;
             // 
             // cbEftInput
             // 
             this.cbEftInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbEftInput.FormattingEnabled = true;
-            this.cbEftInput.Location = new System.Drawing.Point(511, 3);
+            this.cbEftInput.Location = new System.Drawing.Point(513, 3);
             this.cbEftInput.Name = "cbEftInput";
-            this.cbEftInput.Size = new System.Drawing.Size(262, 20);
+            this.cbEftInput.Size = new System.Drawing.Size(264, 20);
             this.cbEftInput.TabIndex = 2;
             this.cbEftInput.Text = "gb2312";
             // 
@@ -2568,7 +2571,7 @@
             this.txtEftContent.Multiline = true;
             this.txtEftContent.Name = "txtEftContent";
             this.txtEftContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtEftContent.Size = new System.Drawing.Size(690, 262);
+            this.txtEftContent.Size = new System.Drawing.Size(694, 262);
             this.txtEftContent.TabIndex = 3;
             // 
             // label36
@@ -2585,7 +2588,7 @@
             // 
             this.label37.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(464, 299);
+            this.label37.Location = new System.Drawing.Point(466, 299);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(41, 12);
             this.label37.TabIndex = 0;
@@ -2595,9 +2598,9 @@
             // 
             this.cbEftOutput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbEftOutput.FormattingEnabled = true;
-            this.cbEftOutput.Location = new System.Drawing.Point(511, 296);
+            this.cbEftOutput.Location = new System.Drawing.Point(513, 296);
             this.cbEftOutput.Name = "cbEftOutput";
-            this.cbEftOutput.Size = new System.Drawing.Size(262, 20);
+            this.cbEftOutput.Size = new System.Drawing.Size(264, 20);
             this.cbEftOutput.TabIndex = 2;
             this.cbEftOutput.Text = "gb2312";
             // 
@@ -2606,7 +2609,7 @@
             this.txtEftOutput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtEftOutput.Location = new System.Drawing.Point(83, 296);
             this.txtEftOutput.Name = "txtEftOutput";
-            this.txtEftOutput.Size = new System.Drawing.Size(262, 21);
+            this.txtEftOutput.Size = new System.Drawing.Size(264, 21);
             this.txtEftOutput.TabIndex = 4;
             // 
             // butEftLoad
@@ -2621,7 +2624,7 @@
             // 
             // butEftSave
             // 
-            this.butEftSave.Location = new System.Drawing.Point(511, 321);
+            this.butEftSave.Location = new System.Drawing.Point(513, 321);
             this.butEftSave.Name = "butEftSave";
             this.butEftSave.Size = new System.Drawing.Size(75, 19);
             this.butEftSave.TabIndex = 6;
@@ -2631,7 +2634,7 @@
             // 
             // butEftBrowseLoad
             // 
-            this.butEftBrowseLoad.Location = new System.Drawing.Point(351, 3);
+            this.butEftBrowseLoad.Location = new System.Drawing.Point(353, 3);
             this.butEftBrowseLoad.Name = "butEftBrowseLoad";
             this.butEftBrowseLoad.Size = new System.Drawing.Size(74, 19);
             this.butEftBrowseLoad.TabIndex = 7;
@@ -2641,7 +2644,7 @@
             // 
             // butEftBrowseSave
             // 
-            this.butEftBrowseSave.Location = new System.Drawing.Point(351, 296);
+            this.butEftBrowseSave.Location = new System.Drawing.Point(353, 296);
             this.butEftBrowseSave.Name = "butEftBrowseSave";
             this.butEftBrowseSave.Size = new System.Drawing.Size(74, 19);
             this.butEftBrowseSave.TabIndex = 7;
@@ -2655,7 +2658,7 @@
             this.tpFileTool.Location = new System.Drawing.Point(4, 22);
             this.tpFileTool.Name = "tpFileTool";
             this.tpFileTool.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFileTool.Size = new System.Drawing.Size(782, 349);
+            this.tpFileTool.Size = new System.Drawing.Size(786, 349);
             this.tpFileTool.TabIndex = 11;
             this.tpFileTool.Text = "文件工具";
             this.tpFileTool.UseVisualStyleBackColor = true;
@@ -2666,7 +2669,7 @@
             this.tableLayoutPanel29.ColumnCount = 3;
             this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
+            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel29.Controls.Add(this.butFtLoad, 2, 0);
             this.tableLayoutPanel29.Controls.Add(this.label44, 0, 0);
             this.tableLayoutPanel29.Controls.Add(this.label45, 0, 1);
@@ -2711,13 +2714,13 @@
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel29.Size = new System.Drawing.Size(776, 343);
+            this.tableLayoutPanel29.Size = new System.Drawing.Size(780, 343);
             this.tableLayoutPanel29.TabIndex = 0;
             // 
             // butFtLoad
             // 
             this.butFtLoad.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butFtLoad.Location = new System.Drawing.Point(668, 4);
+            this.butFtLoad.Location = new System.Drawing.Point(671, 4);
             this.butFtLoad.Name = "butFtLoad";
             this.butFtLoad.Size = new System.Drawing.Size(75, 19);
             this.butFtLoad.TabIndex = 1;
@@ -2808,13 +2811,13 @@
             this.tableLayoutPanel30.Name = "tableLayoutPanel30";
             this.tableLayoutPanel30.RowCount = 1;
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel30.Size = new System.Drawing.Size(513, 25);
+            this.tableLayoutPanel30.Size = new System.Drawing.Size(516, 25);
             this.tableLayoutPanel30.TabIndex = 2;
             // 
             // butFtBrowse
             // 
             this.butFtBrowse.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butFtBrowse.Location = new System.Drawing.Point(430, 3);
+            this.butFtBrowse.Location = new System.Drawing.Point(433, 3);
             this.butFtBrowse.Name = "butFtBrowse";
             this.butFtBrowse.Size = new System.Drawing.Size(75, 19);
             this.butFtBrowse.TabIndex = 1;
@@ -2827,7 +2830,7 @@
             this.txtFtFileName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtFtFileName.Location = new System.Drawing.Point(3, 3);
             this.txtFtFileName.Name = "txtFtFileName";
-            this.txtFtFileName.Size = new System.Drawing.Size(417, 21);
+            this.txtFtFileName.Size = new System.Drawing.Size(420, 21);
             this.txtFtFileName.TabIndex = 0;
             // 
             // labFtLen
@@ -2843,7 +2846,7 @@
             // butFtCheckLen
             // 
             this.butFtCheckLen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butFtCheckLen.Location = new System.Drawing.Point(668, 30);
+            this.butFtCheckLen.Location = new System.Drawing.Point(671, 30);
             this.butFtCheckLen.Name = "butFtCheckLen";
             this.butFtCheckLen.Size = new System.Drawing.Size(75, 19);
             this.butFtCheckLen.TabIndex = 1;
@@ -2854,7 +2857,7 @@
             // butFtMd5
             // 
             this.butFtMd5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butFtMd5.Location = new System.Drawing.Point(668, 56);
+            this.butFtMd5.Location = new System.Drawing.Point(671, 56);
             this.butFtMd5.Name = "butFtMd5";
             this.butFtMd5.Size = new System.Drawing.Size(75, 19);
             this.butFtMd5.TabIndex = 1;
@@ -2875,7 +2878,7 @@
             // butFtSha1
             // 
             this.butFtSha1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butFtSha1.Location = new System.Drawing.Point(668, 82);
+            this.butFtSha1.Location = new System.Drawing.Point(671, 82);
             this.butFtSha1.Name = "butFtSha1";
             this.butFtSha1.Size = new System.Drawing.Size(75, 19);
             this.butFtSha1.TabIndex = 1;
@@ -2900,7 +2903,7 @@
             this.tableLayoutPanel31.Name = "tableLayoutPanel31";
             this.tableLayoutPanel31.RowCount = 1;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel31.Size = new System.Drawing.Size(513, 25);
+            this.tableLayoutPanel31.Size = new System.Drawing.Size(516, 25);
             this.tableLayoutPanel31.TabIndex = 3;
             // 
             // chkFtA
@@ -2918,7 +2921,7 @@
             // 
             this.chkFtS.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkFtS.AutoSize = true;
-            this.chkFtS.Location = new System.Drawing.Point(131, 4);
+            this.chkFtS.Location = new System.Drawing.Point(132, 4);
             this.chkFtS.Name = "chkFtS";
             this.chkFtS.Size = new System.Drawing.Size(30, 16);
             this.chkFtS.TabIndex = 0;
@@ -2929,7 +2932,7 @@
             // 
             this.chkFtH.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkFtH.AutoSize = true;
-            this.chkFtH.Location = new System.Drawing.Point(259, 4);
+            this.chkFtH.Location = new System.Drawing.Point(261, 4);
             this.chkFtH.Name = "chkFtH";
             this.chkFtH.Size = new System.Drawing.Size(30, 16);
             this.chkFtH.TabIndex = 0;
@@ -2940,7 +2943,7 @@
             // 
             this.chkFtR.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkFtR.AutoSize = true;
-            this.chkFtR.Location = new System.Drawing.Point(387, 4);
+            this.chkFtR.Location = new System.Drawing.Point(390, 4);
             this.chkFtR.Name = "chkFtR";
             this.chkFtR.Size = new System.Drawing.Size(30, 16);
             this.chkFtR.TabIndex = 0;
@@ -2950,7 +2953,7 @@
             // butFtUpdateAttrib
             // 
             this.butFtUpdateAttrib.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butFtUpdateAttrib.Location = new System.Drawing.Point(668, 108);
+            this.butFtUpdateAttrib.Location = new System.Drawing.Point(671, 108);
             this.butFtUpdateAttrib.Name = "butFtUpdateAttrib";
             this.butFtUpdateAttrib.Size = new System.Drawing.Size(75, 19);
             this.butFtUpdateAttrib.TabIndex = 1;
@@ -2991,7 +2994,7 @@
             // butFtUpdateCreateTime
             // 
             this.butFtUpdateCreateTime.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butFtUpdateCreateTime.Location = new System.Drawing.Point(668, 134);
+            this.butFtUpdateCreateTime.Location = new System.Drawing.Point(671, 134);
             this.butFtUpdateCreateTime.Name = "butFtUpdateCreateTime";
             this.butFtUpdateCreateTime.Size = new System.Drawing.Size(75, 19);
             this.butFtUpdateCreateTime.TabIndex = 1;
@@ -3002,7 +3005,7 @@
             // butFtUpdateModifyTime
             // 
             this.butFtUpdateModifyTime.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butFtUpdateModifyTime.Location = new System.Drawing.Point(668, 160);
+            this.butFtUpdateModifyTime.Location = new System.Drawing.Point(671, 160);
             this.butFtUpdateModifyTime.Name = "butFtUpdateModifyTime";
             this.butFtUpdateModifyTime.Size = new System.Drawing.Size(75, 19);
             this.butFtUpdateModifyTime.TabIndex = 1;
@@ -3013,7 +3016,7 @@
             // butFtUpdateAccessTime
             // 
             this.butFtUpdateAccessTime.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.butFtUpdateAccessTime.Location = new System.Drawing.Point(668, 186);
+            this.butFtUpdateAccessTime.Location = new System.Drawing.Point(671, 186);
             this.butFtUpdateAccessTime.Name = "butFtUpdateAccessTime";
             this.butFtUpdateAccessTime.Size = new System.Drawing.Size(75, 19);
             this.butFtUpdateAccessTime.TabIndex = 1;
@@ -3026,7 +3029,7 @@
             this.txtFtMd5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtFtMd5.Location = new System.Drawing.Point(125, 56);
             this.txtFtMd5.Name = "txtFtMd5";
-            this.txtFtMd5.Size = new System.Drawing.Size(507, 21);
+            this.txtFtMd5.Size = new System.Drawing.Size(510, 21);
             this.txtFtMd5.TabIndex = 5;
             // 
             // txtFtSha1
@@ -3034,7 +3037,7 @@
             this.txtFtSha1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtFtSha1.Location = new System.Drawing.Point(125, 82);
             this.txtFtSha1.Name = "txtFtSha1";
-            this.txtFtSha1.Size = new System.Drawing.Size(507, 21);
+            this.txtFtSha1.Size = new System.Drawing.Size(510, 21);
             this.txtFtSha1.TabIndex = 5;
             // 
             // label73
@@ -3066,13 +3069,13 @@
             this.tableLayoutPanel42.Name = "tableLayoutPanel42";
             this.tableLayoutPanel42.RowCount = 1;
             this.tableLayoutPanel42.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel42.Size = new System.Drawing.Size(513, 25);
+            this.tableLayoutPanel42.Size = new System.Drawing.Size(516, 25);
             this.tableLayoutPanel42.TabIndex = 6;
             // 
             // ButFileSplitOutDir
             // 
             this.ButFileSplitOutDir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ButFileSplitOutDir.Location = new System.Drawing.Point(428, 3);
+            this.ButFileSplitOutDir.Location = new System.Drawing.Point(430, 3);
             this.ButFileSplitOutDir.Name = "ButFileSplitOutDir";
             this.ButFileSplitOutDir.Size = new System.Drawing.Size(75, 19);
             this.ButFileSplitOutDir.TabIndex = 1;
@@ -3105,7 +3108,7 @@
             0,
             0});
             this.NudFileSplitBlockSize.Name = "NudFileSplitBlockSize";
-            this.NudFileSplitBlockSize.Size = new System.Drawing.Size(113, 21);
+            this.NudFileSplitBlockSize.Size = new System.Drawing.Size(114, 21);
             this.NudFileSplitBlockSize.TabIndex = 1;
             this.NudFileSplitBlockSize.Value = new decimal(new int[] {
             1048576,
@@ -3117,7 +3120,7 @@
             // 
             this.label75.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(243, 6);
+            this.label75.Location = new System.Drawing.Point(244, 6);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(53, 12);
             this.label75.TabIndex = 0;
@@ -3126,15 +3129,15 @@
             // TxtFileSplitOutDir
             // 
             this.TxtFileSplitOutDir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtFileSplitOutDir.Location = new System.Drawing.Point(302, 3);
+            this.TxtFileSplitOutDir.Location = new System.Drawing.Point(303, 3);
             this.TxtFileSplitOutDir.Name = "TxtFileSplitOutDir";
-            this.TxtFileSplitOutDir.Size = new System.Drawing.Size(113, 21);
+            this.TxtFileSplitOutDir.Size = new System.Drawing.Size(114, 21);
             this.TxtFileSplitOutDir.TabIndex = 2;
             // 
             // ButFileSplit
             // 
             this.ButFileSplit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ButFileSplit.Location = new System.Drawing.Point(668, 212);
+            this.ButFileSplit.Location = new System.Drawing.Point(671, 212);
             this.ButFileSplit.Name = "ButFileSplit";
             this.ButFileSplit.Size = new System.Drawing.Size(75, 19);
             this.ButFileSplit.TabIndex = 1;
@@ -3147,7 +3150,7 @@
             this.ProFileSplit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProFileSplit.Location = new System.Drawing.Point(125, 238);
             this.ProFileSplit.Name = "ProFileSplit";
-            this.ProFileSplit.Size = new System.Drawing.Size(507, 19);
+            this.ProFileSplit.Size = new System.Drawing.Size(510, 19);
             this.ProFileSplit.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.ProFileSplit.TabIndex = 7;
             // 
@@ -3156,7 +3159,7 @@
             this.tpHttpTest.Controls.Add(this.tableLayoutPanel32);
             this.tpHttpTest.Location = new System.Drawing.Point(4, 22);
             this.tpHttpTest.Name = "tpHttpTest";
-            this.tpHttpTest.Size = new System.Drawing.Size(782, 349);
+            this.tpHttpTest.Size = new System.Drawing.Size(786, 349);
             this.tpHttpTest.TabIndex = 12;
             this.tpHttpTest.Text = "HTTP测试";
             this.tpHttpTest.UseVisualStyleBackColor = true;
@@ -3199,7 +3202,7 @@
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel32.Size = new System.Drawing.Size(782, 349);
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(786, 349);
             this.tableLayoutPanel32.TabIndex = 0;
             // 
             // label46
@@ -3218,7 +3221,7 @@
             this.TxtHttpTestUrl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtHttpTestUrl.Location = new System.Drawing.Point(123, 3);
             this.TxtHttpTestUrl.Name = "TxtHttpTestUrl";
-            this.TxtHttpTestUrl.Size = new System.Drawing.Size(656, 21);
+            this.TxtHttpTestUrl.Size = new System.Drawing.Size(660, 21);
             this.TxtHttpTestUrl.TabIndex = 1;
             // 
             // label48
@@ -3244,7 +3247,7 @@
             this.tableLayoutPanel33.Name = "tableLayoutPanel33";
             this.tableLayoutPanel33.RowCount = 1;
             this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel33.Size = new System.Drawing.Size(271, 25);
+            this.tableLayoutPanel33.Size = new System.Drawing.Size(273, 25);
             this.tableLayoutPanel33.TabIndex = 2;
             // 
             // RadHttpTestGet
@@ -3264,7 +3267,7 @@
             // 
             this.RadHttpTestPost.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RadHttpTestPost.AutoSize = true;
-            this.RadHttpTestPost.Location = new System.Drawing.Point(138, 4);
+            this.RadHttpTestPost.Location = new System.Drawing.Point(139, 4);
             this.RadHttpTestPost.Name = "RadHttpTestPost";
             this.RadHttpTestPost.Size = new System.Drawing.Size(47, 16);
             this.RadHttpTestPost.TabIndex = 0;
@@ -3280,13 +3283,13 @@
             this.TxtHttpTestPostData.Multiline = true;
             this.TxtHttpTestPostData.Name = "TxtHttpTestPostData";
             this.TxtHttpTestPostData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtHttpTestPostData.Size = new System.Drawing.Size(656, 78);
+            this.TxtHttpTestPostData.Size = new System.Drawing.Size(660, 78);
             this.TxtHttpTestPostData.TabIndex = 3;
             // 
             // ButHttpTest
             // 
             this.ButHttpTest.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.ButHttpTest.Location = new System.Drawing.Point(704, 242);
+            this.ButHttpTest.Location = new System.Drawing.Point(708, 242);
             this.ButHttpTest.Name = "ButHttpTest";
             this.ButHttpTest.Size = new System.Drawing.Size(75, 19);
             this.ButHttpTest.TabIndex = 4;
@@ -3303,7 +3306,7 @@
             this.TxtHttpTestResponse.Multiline = true;
             this.TxtHttpTestResponse.Name = "TxtHttpTestResponse";
             this.TxtHttpTestResponse.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtHttpTestResponse.Size = new System.Drawing.Size(656, 79);
+            this.TxtHttpTestResponse.Size = new System.Drawing.Size(660, 79);
             this.TxtHttpTestResponse.TabIndex = 5;
             // 
             // label56
@@ -3336,7 +3339,7 @@
             "text/xml"});
             this.SelHttpTestContentType.Location = new System.Drawing.Point(123, 53);
             this.SelHttpTestContentType.Name = "SelHttpTestContentType";
-            this.SelHttpTestContentType.Size = new System.Drawing.Size(265, 20);
+            this.SelHttpTestContentType.Size = new System.Drawing.Size(267, 20);
             this.SelHttpTestContentType.TabIndex = 6;
             this.SelHttpTestContentType.Text = "application/x-www-form-urlencoded";
             // 
@@ -3351,7 +3354,7 @@
             this.LstHttpTestReqHead.HideSelection = false;
             this.LstHttpTestReqHead.Location = new System.Drawing.Point(123, 78);
             this.LstHttpTestReqHead.Name = "LstHttpTestReqHead";
-            this.LstHttpTestReqHead.Size = new System.Drawing.Size(265, 74);
+            this.LstHttpTestReqHead.Size = new System.Drawing.Size(267, 74);
             this.LstHttpTestReqHead.TabIndex = 7;
             this.LstHttpTestReqHead.UseCompatibleStateImageBehavior = false;
             this.LstHttpTestReqHead.View = System.Windows.Forms.View.Details;
@@ -3373,7 +3376,7 @@
             this.tableLayoutPanel34.Controls.Add(this.ButHttpTestReqHeadRmv, 0, 1);
             this.tableLayoutPanel34.Controls.Add(this.ButHttpTestReqHeadAdd, 0, 0);
             this.tableLayoutPanel34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel34.Location = new System.Drawing.Point(391, 75);
+            this.tableLayoutPanel34.Location = new System.Drawing.Point(393, 75);
             this.tableLayoutPanel34.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel34.Name = "tableLayoutPanel34";
             this.tableLayoutPanel34.RowCount = 2;
@@ -3414,13 +3417,13 @@
             this.tableLayoutPanel35.Controls.Add(this.label58, 0, 0);
             this.tableLayoutPanel35.Controls.Add(this.TxtHttpTestReqHeadKey, 1, 0);
             this.tableLayoutPanel35.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel35.Location = new System.Drawing.Point(511, 75);
+            this.tableLayoutPanel35.Location = new System.Drawing.Point(513, 75);
             this.tableLayoutPanel35.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel35.Name = "tableLayoutPanel35";
             this.tableLayoutPanel35.RowCount = 2;
             this.tableLayoutPanel35.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel35.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel35.Size = new System.Drawing.Size(271, 52);
+            this.tableLayoutPanel35.Size = new System.Drawing.Size(273, 52);
             this.tableLayoutPanel35.TabIndex = 9;
             // 
             // TxtHttpTestReqHeadVal
@@ -3428,7 +3431,7 @@
             this.TxtHttpTestReqHeadVal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtHttpTestReqHeadVal.Location = new System.Drawing.Point(63, 29);
             this.TxtHttpTestReqHeadVal.Name = "TxtHttpTestReqHeadVal";
-            this.TxtHttpTestReqHeadVal.Size = new System.Drawing.Size(205, 21);
+            this.TxtHttpTestReqHeadVal.Size = new System.Drawing.Size(207, 21);
             this.TxtHttpTestReqHeadVal.TabIndex = 4;
             // 
             // label59
@@ -3456,14 +3459,14 @@
             this.TxtHttpTestReqHeadKey.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtHttpTestReqHeadKey.Location = new System.Drawing.Point(63, 3);
             this.TxtHttpTestReqHeadKey.Name = "TxtHttpTestReqHeadKey";
-            this.TxtHttpTestReqHeadKey.Size = new System.Drawing.Size(205, 21);
+            this.TxtHttpTestReqHeadKey.Size = new System.Drawing.Size(207, 21);
             this.TxtHttpTestReqHeadKey.TabIndex = 3;
             // 
             // ChkHttpTestHttps
             // 
             this.ChkHttpTestHttps.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ChkHttpTestHttps.AutoSize = true;
-            this.ChkHttpTestHttps.Location = new System.Drawing.Point(406, 29);
+            this.ChkHttpTestHttps.Location = new System.Drawing.Point(408, 29);
             this.ChkHttpTestHttps.Name = "ChkHttpTestHttps";
             this.ChkHttpTestHttps.Size = new System.Drawing.Size(102, 16);
             this.ChkHttpTestHttps.TabIndex = 10;
@@ -3473,16 +3476,16 @@
             // TxtHttpTestHttpsFile
             // 
             this.TxtHttpTestHttpsFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtHttpTestHttpsFile.Location = new System.Drawing.Point(514, 28);
+            this.TxtHttpTestHttpsFile.Location = new System.Drawing.Point(516, 28);
             this.TxtHttpTestHttpsFile.Name = "TxtHttpTestHttpsFile";
-            this.TxtHttpTestHttpsFile.Size = new System.Drawing.Size(265, 21);
+            this.TxtHttpTestHttpsFile.Size = new System.Drawing.Size(267, 21);
             this.TxtHttpTestHttpsFile.TabIndex = 11;
             // 
             // label60
             // 
             this.label60.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(413, 56);
+            this.label60.Location = new System.Drawing.Point(415, 56);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(95, 12);
             this.label60.TabIndex = 12;
@@ -3491,16 +3494,16 @@
             // TxtHttpTestHttpsPass
             // 
             this.TxtHttpTestHttpsPass.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtHttpTestHttpsPass.Location = new System.Drawing.Point(514, 53);
+            this.TxtHttpTestHttpsPass.Location = new System.Drawing.Point(516, 53);
             this.TxtHttpTestHttpsPass.Name = "TxtHttpTestHttpsPass";
-            this.TxtHttpTestHttpsPass.Size = new System.Drawing.Size(265, 21);
+            this.TxtHttpTestHttpsPass.Size = new System.Drawing.Size(267, 21);
             this.TxtHttpTestHttpsPass.TabIndex = 13;
             // 
             // ChkHttpTestDownload
             // 
             this.ChkHttpTestDownload.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ChkHttpTestDownload.AutoSize = true;
-            this.ChkHttpTestDownload.Location = new System.Drawing.Point(427, 243);
+            this.ChkHttpTestDownload.Location = new System.Drawing.Point(429, 243);
             this.ChkHttpTestDownload.Name = "ChkHttpTestDownload";
             this.ChkHttpTestDownload.Size = new System.Drawing.Size(48, 16);
             this.ChkHttpTestDownload.TabIndex = 14;
@@ -3586,7 +3589,7 @@
             this.tpFormatJson.Location = new System.Drawing.Point(4, 22);
             this.tpFormatJson.Name = "tpFormatJson";
             this.tpFormatJson.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFormatJson.Size = new System.Drawing.Size(782, 349);
+            this.tpFormatJson.Size = new System.Drawing.Size(786, 349);
             this.tpFormatJson.TabIndex = 13;
             this.tpFormatJson.Text = "格式化JSON";
             this.tpFormatJson.UseVisualStyleBackColor = true;
@@ -3608,7 +3611,7 @@
             this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel37.Size = new System.Drawing.Size(776, 343);
+            this.tableLayoutPanel37.Size = new System.Drawing.Size(780, 343);
             this.tableLayoutPanel37.TabIndex = 0;
             // 
             // label4
@@ -3639,7 +3642,7 @@
             this.TxtFormatJsonSrc.Multiline = true;
             this.TxtFormatJsonSrc.Name = "TxtFormatJsonSrc";
             this.TxtFormatJsonSrc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtFormatJsonSrc.Size = new System.Drawing.Size(690, 150);
+            this.TxtFormatJsonSrc.Size = new System.Drawing.Size(694, 150);
             this.TxtFormatJsonSrc.TabIndex = 3;
             // 
             // TxtFormatJsonObj
@@ -3650,7 +3653,7 @@
             this.TxtFormatJsonObj.Multiline = true;
             this.TxtFormatJsonObj.Name = "TxtFormatJsonObj";
             this.TxtFormatJsonObj.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtFormatJsonObj.Size = new System.Drawing.Size(690, 151);
+            this.TxtFormatJsonObj.Size = new System.Drawing.Size(694, 151);
             this.TxtFormatJsonObj.TabIndex = 4;
             // 
             // flowLayoutPanel1
@@ -3661,7 +3664,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(80, 156);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(696, 30);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(700, 30);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // ButFormatJson
@@ -3694,7 +3697,7 @@
             this.tpFormatXml.Controls.Add(this.tableLayoutPanel38);
             this.tpFormatXml.Location = new System.Drawing.Point(4, 22);
             this.tpFormatXml.Name = "tpFormatXml";
-            this.tpFormatXml.Size = new System.Drawing.Size(782, 349);
+            this.tpFormatXml.Size = new System.Drawing.Size(786, 349);
             this.tpFormatXml.TabIndex = 14;
             this.tpFormatXml.Text = "格式化XML";
             this.tpFormatXml.UseVisualStyleBackColor = true;
@@ -3717,7 +3720,7 @@
             this.tableLayoutPanel38.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel38.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel38.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel38.Size = new System.Drawing.Size(782, 349);
+            this.tableLayoutPanel38.Size = new System.Drawing.Size(786, 349);
             this.tableLayoutPanel38.TabIndex = 0;
             // 
             // label77
@@ -3738,7 +3741,7 @@
             this.TxtFormatXmlObj.Multiline = true;
             this.TxtFormatXmlObj.Name = "TxtFormatXmlObj";
             this.TxtFormatXmlObj.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtFormatXmlObj.Size = new System.Drawing.Size(656, 154);
+            this.TxtFormatXmlObj.Size = new System.Drawing.Size(660, 154);
             this.TxtFormatXmlObj.TabIndex = 4;
             // 
             // label76
@@ -3759,7 +3762,7 @@
             this.TxtFormatXmlSrc.Multiline = true;
             this.TxtFormatXmlSrc.Name = "TxtFormatXmlSrc";
             this.TxtFormatXmlSrc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtFormatXmlSrc.Size = new System.Drawing.Size(656, 153);
+            this.TxtFormatXmlSrc.Size = new System.Drawing.Size(660, 153);
             this.TxtFormatXmlSrc.TabIndex = 3;
             // 
             // flowLayoutPanel2
@@ -3770,7 +3773,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(120, 159);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(662, 30);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(666, 30);
             this.flowLayoutPanel2.TabIndex = 5;
             // 
             // ButFormatXml
@@ -3987,13 +3990,23 @@
             this.textBox10.Size = new System.Drawing.Size(100, 21);
             this.textBox10.TabIndex = 1;
             // 
+            // butEmailSend
+            // 
+            this.butEmailSend.Location = new System.Drawing.Point(513, 93);
+            this.butEmailSend.Name = "butEmailSend";
+            this.butEmailSend.Size = new System.Drawing.Size(75, 23);
+            this.butEmailSend.TabIndex = 2;
+            this.butEmailSend.Text = "button3";
+            this.butEmailSend.UseVisualStyleBackColor = true;
+            this.butEmailSend.Click += new System.EventHandler(this.butEmailSend_Click);
+            // 
             // tpHttpServer
             // 
             this.tpHttpServer.Controls.Add(this.tableLayoutPanel43);
             this.tpHttpServer.Location = new System.Drawing.Point(4, 22);
             this.tpHttpServer.Name = "tpHttpServer";
             this.tpHttpServer.Padding = new System.Windows.Forms.Padding(3);
-            this.tpHttpServer.Size = new System.Drawing.Size(782, 349);
+            this.tpHttpServer.Size = new System.Drawing.Size(794, 349);
             this.tpHttpServer.TabIndex = 16;
             this.tpHttpServer.Text = "HTTP服务";
             this.tpHttpServer.UseVisualStyleBackColor = true;
@@ -4014,21 +4027,23 @@
             this.tableLayoutPanel43.Controls.Add(this.ButHttpServBrowse, 3, 1);
             this.tableLayoutPanel43.Controls.Add(this.ChkHttpServAnonymous, 0, 2);
             this.tableLayoutPanel43.Controls.Add(this.flowLayoutPanel3, 1, 2);
-            this.tableLayoutPanel43.Controls.Add(this.label81, 0, 3);
-            this.tableLayoutPanel43.Controls.Add(this.TxtHttpServLog, 1, 3);
+            this.tableLayoutPanel43.Controls.Add(this.label81, 0, 4);
+            this.tableLayoutPanel43.Controls.Add(this.TxtHttpServLog, 1, 4);
             this.tableLayoutPanel43.Controls.Add(this.label82, 2, 2);
             this.tableLayoutPanel43.Controls.Add(this.ButHttpServRun, 3, 2);
+            this.tableLayoutPanel43.Controls.Add(this.ChkHttpServPhp, 0, 3);
+            this.tableLayoutPanel43.Controls.Add(this.TxtHttpServPhpPath, 1, 3);
+            this.tableLayoutPanel43.Controls.Add(this.ButHttpServBrowsePhp, 3, 3);
             this.tableLayoutPanel43.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel43.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel43.Name = "tableLayoutPanel43";
-            this.tableLayoutPanel43.RowCount = 4;
+            this.tableLayoutPanel43.RowCount = 5;
+            this.tableLayoutPanel43.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel43.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel43.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel43.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel43.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel43.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel43.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel43.Size = new System.Drawing.Size(776, 343);
+            this.tableLayoutPanel43.Size = new System.Drawing.Size(788, 343);
             this.tableLayoutPanel43.TabIndex = 0;
             // 
             // label78
@@ -4045,7 +4060,7 @@
             // 
             this.label79.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(464, 9);
+            this.label79.Location = new System.Drawing.Point(470, 9);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(41, 12);
             this.label79.TabIndex = 0;
@@ -4056,13 +4071,13 @@
             this.TxtHttpServIp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtHttpServIp.Location = new System.Drawing.Point(123, 3);
             this.TxtHttpServIp.Name = "TxtHttpServIp";
-            this.TxtHttpServIp.Size = new System.Drawing.Size(262, 21);
+            this.TxtHttpServIp.Size = new System.Drawing.Size(268, 21);
             this.TxtHttpServIp.TabIndex = 1;
             this.TxtHttpServIp.Text = "0.0.0.0";
             // 
             // NudHttpServPort
             // 
-            this.NudHttpServPort.Location = new System.Drawing.Point(511, 3);
+            this.NudHttpServPort.Location = new System.Drawing.Point(517, 3);
             this.NudHttpServPort.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -4098,12 +4113,12 @@
             this.TxtHttpServPath.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtHttpServPath.Location = new System.Drawing.Point(123, 33);
             this.TxtHttpServPath.Name = "TxtHttpServPath";
-            this.TxtHttpServPath.Size = new System.Drawing.Size(382, 21);
+            this.TxtHttpServPath.Size = new System.Drawing.Size(388, 21);
             this.TxtHttpServPath.TabIndex = 3;
             // 
             // ButHttpServBrowse
             // 
-            this.ButHttpServBrowse.Location = new System.Drawing.Point(511, 33);
+            this.ButHttpServBrowse.Location = new System.Drawing.Point(517, 33);
             this.ButHttpServBrowse.Name = "ButHttpServBrowse";
             this.ButHttpServBrowse.Size = new System.Drawing.Size(75, 23);
             this.ButHttpServBrowse.TabIndex = 4;
@@ -4132,7 +4147,7 @@
             this.flowLayoutPanel3.Location = new System.Drawing.Point(120, 60);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(268, 30);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(274, 30);
             this.flowLayoutPanel3.TabIndex = 6;
             // 
             // TxtHttpServUser
@@ -4155,7 +4170,7 @@
             // 
             this.label81.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(76, 90);
+            this.label81.Location = new System.Drawing.Point(76, 120);
             this.label81.Name = "label81";
             this.label81.Size = new System.Drawing.Size(41, 12);
             this.label81.TabIndex = 0;
@@ -4165,20 +4180,20 @@
             // 
             this.tableLayoutPanel43.SetColumnSpan(this.TxtHttpServLog, 3);
             this.TxtHttpServLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtHttpServLog.Location = new System.Drawing.Point(120, 90);
+            this.TxtHttpServLog.Location = new System.Drawing.Point(120, 120);
             this.TxtHttpServLog.Margin = new System.Windows.Forms.Padding(0);
             this.TxtHttpServLog.Multiline = true;
             this.TxtHttpServLog.Name = "TxtHttpServLog";
             this.TxtHttpServLog.ReadOnly = true;
             this.TxtHttpServLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtHttpServLog.Size = new System.Drawing.Size(656, 253);
+            this.TxtHttpServLog.Size = new System.Drawing.Size(668, 223);
             this.TxtHttpServLog.TabIndex = 7;
             // 
             // label82
             // 
             this.label82.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(440, 69);
+            this.label82.Location = new System.Drawing.Point(446, 69);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(65, 12);
             this.label82.TabIndex = 0;
@@ -4186,7 +4201,7 @@
             // 
             // ButHttpServRun
             // 
-            this.ButHttpServRun.Location = new System.Drawing.Point(511, 63);
+            this.ButHttpServRun.Location = new System.Drawing.Point(517, 63);
             this.ButHttpServRun.Name = "ButHttpServRun";
             this.ButHttpServRun.Size = new System.Drawing.Size(151, 23);
             this.ButHttpServRun.TabIndex = 8;
@@ -4221,22 +4236,42 @@
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "tabPage3";
             // 
-            // butEmailSend
+            // ChkHttpServPhp
             // 
-            this.butEmailSend.Location = new System.Drawing.Point(513, 93);
-            this.butEmailSend.Name = "butEmailSend";
-            this.butEmailSend.Size = new System.Drawing.Size(75, 23);
-            this.butEmailSend.TabIndex = 2;
-            this.butEmailSend.Text = "button3";
-            this.butEmailSend.UseVisualStyleBackColor = true;
-            this.butEmailSend.Click += new System.EventHandler(this.butEmailSend_Click);
+            this.ChkHttpServPhp.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ChkHttpServPhp.AutoSize = true;
+            this.ChkHttpServPhp.Location = new System.Drawing.Point(51, 97);
+            this.ChkHttpServPhp.Name = "ChkHttpServPhp";
+            this.ChkHttpServPhp.Size = new System.Drawing.Size(66, 16);
+            this.ChkHttpServPhp.TabIndex = 9;
+            this.ChkHttpServPhp.Text = "支持PHP";
+            this.ChkHttpServPhp.UseVisualStyleBackColor = true;
+            // 
+            // TxtHttpServPhpPath
+            // 
+            this.tableLayoutPanel43.SetColumnSpan(this.TxtHttpServPhpPath, 2);
+            this.TxtHttpServPhpPath.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtHttpServPhpPath.Location = new System.Drawing.Point(123, 93);
+            this.TxtHttpServPhpPath.Name = "TxtHttpServPhpPath";
+            this.TxtHttpServPhpPath.Size = new System.Drawing.Size(388, 21);
+            this.TxtHttpServPhpPath.TabIndex = 10;
+            // 
+            // ButHttpServBrowsePhp
+            // 
+            this.ButHttpServBrowsePhp.Location = new System.Drawing.Point(517, 93);
+            this.ButHttpServBrowsePhp.Name = "ButHttpServBrowsePhp";
+            this.ButHttpServBrowsePhp.Size = new System.Drawing.Size(75, 23);
+            this.ButHttpServBrowsePhp.TabIndex = 11;
+            this.ButHttpServBrowsePhp.Text = "浏览...";
+            this.ButHttpServBrowsePhp.UseVisualStyleBackColor = true;
+            this.ButHttpServBrowsePhp.Click += new System.EventHandler(this.ButHttpServBrowsePhp_Click);
             // 
             // FrmMain
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 375);
+            this.ClientSize = new System.Drawing.Size(802, 375);
             this.Controls.Add(this.tcMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
@@ -4668,6 +4703,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel44;
         private System.Windows.Forms.CheckBox chkReplaceRecurse;
         private System.Windows.Forms.Button butEmailSend;
+        private System.Windows.Forms.CheckBox ChkHttpServPhp;
+        private System.Windows.Forms.TextBox TxtHttpServPhpPath;
+        private System.Windows.Forms.Button ButHttpServBrowsePhp;
     }
 }
 

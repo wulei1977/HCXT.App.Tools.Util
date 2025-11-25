@@ -29,10 +29,15 @@ using System.Runtime.InteropServices;
 //      内部版本号
 //      修订号
 //
-[assembly: AssemblyVersion("1.0.1.1")]
-[assembly: AssemblyFileVersion("1.2025.1124.2003")]
+[assembly: AssemblyVersion("1.0.1.2")]
+[assembly: AssemblyFileVersion("1.2025.1125.1940")]
 
 [assembly: AssemblyDescription(@"// 更新日志
+//
+// 2025-11-25
+//     版 本 号：1.0.1.2
+//     版 本 号：1.2025.1125.1940
+//     更新记录：HTTP服务功能增加PHP支持能力；
 //
 // 2025-11-24
 //     版 本 号：1.0.1.1

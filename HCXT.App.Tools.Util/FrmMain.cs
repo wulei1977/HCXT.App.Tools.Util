@@ -1649,6 +1649,19 @@ namespace HCXT.App.Tools.Util
             }
         }
 
+        private void ButHttpServBrowsePhp_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                Filter = "PHP可执行文件|php-cgi.exe|所有文件|*.*",
+                Title = "选择php-cgi.exe路径"
+            };
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                TxtHttpServPhpPath.Text = ofd.FileName;
+            }
+        }
+
         private void ButHttpServRun_Click(object sender, EventArgs e)
         {
             if (!isHttpServerRunning)
@@ -1717,6 +1730,9 @@ namespace HCXT.App.Tools.Util
                 ChkHttpServAnonymous.Enabled = false;
                 TxtHttpServUser.Enabled = false;
                 TxtHttpServPass.Enabled = false;
+                ChkHttpServPhp.Enabled = false;
+                TxtHttpServPhpPath.Enabled = false;
+                ButHttpServBrowsePhp.Enabled = false;
 
                 LogHttpServer(string.Format("HTTP服务已启动，监听地址：{0}", prefix));
                 LogHttpServer(string.Format("映射目录：{0}", TxtHttpServPath.Text));
@@ -1767,6 +1783,9 @@ namespace HCXT.App.Tools.Util
                 ChkHttpServAnonymous.Enabled = true;
                 TxtHttpServUser.Enabled = true;
                 TxtHttpServPass.Enabled = true;
+                ChkHttpServPhp.Enabled = true;
+                TxtHttpServPhpPath.Enabled = true;
+                ButHttpServBrowsePhp.Enabled = true;
 
                 LogHttpServer("HTTP服务已停止");
             }
@@ -1852,6 +1871,12 @@ namespace HCXT.App.Tools.Util
                 }
                 else
                 {
+                    // 检查是否为PHP文件且启用了PHP支持
+                    if (ChkHttpServPhp.Checked && filePath.ToLower().EndsWith(".php"))
+                    {
+                        ExecutePhpScript(response, request, filePath);
+                        return;
+                    }
                     HttpServerOptimization.SendFileWithRangeSupport(response, request, filePath, LogHttpServer);
                     /*
                     byte[] fileBytes = File.ReadAllBytes(filePath);
@@ -2129,6 +2154,77 @@ namespace HCXT.App.Tools.Util
             }
 
             return false;
+        }
+
+        private void ExecutePhpScript(HttpListenerResponse response, HttpListenerRequest request, string filePath)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(TxtHttpServPhpPath.Text) || !File.Exists(TxtHttpServPhpPath.Text))
+                {
+                    response.StatusCode = 500;
+                    byte[] buffer = Encoding.UTF8.GetBytes("<html><body><h1>500 - PHP路径未配置或无效</h1></body></html>");
+                    response.ContentLength64 = buffer.Length;
+                    response.OutputStream.Write(buffer, 0, buffer.Length);
+                    LogHttpServer(string.Format("{0} {1} - 500 (PHP路径无效)", request.HttpMethod, request.Url.AbsolutePath));
+                    return;
+                }
+
+                System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = TxtHttpServPhpPath.Text,
+                    Arguments = string.Format("-f \"{0}\"", filePath),
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true
+                };
+
+                // 设置环境变量
+                /*
+                ["REDIRECT_STATUS"] = "200", // 核心修复：添加该变量，模拟 Web 服务器转发
+                ["REQUEST_METHOD"] = request.Method,
+                ["REQUEST_URI"] = request.Path + request.QueryString,
+                ["QUERY_STRING"] = request.QueryString.Value ?? "",
+                ["SCRIPT_FILENAME"] = scriptPath,
+                ["SCRIPT_NAME"] = request.Path.Value,
+                ["DOCUMENT_ROOT"] = PhpScriptRoot,
+                ["HTTP_HOST"] = request.Host.ToString(),
+                ["CONTENT_TYPE"] = request.ContentType ?? "",
+                ["CONTENT_LENGTH"] = request.ContentLength?.ToString() ?? "0"
+                 */
+                psi.EnvironmentVariables["REDIRECT_STATUS"] = "200";
+                psi.EnvironmentVariables["REQUEST_METHOD"] = request.HttpMethod;
+                psi.EnvironmentVariables["SCRIPT_FILENAME"] = filePath;
+                psi.EnvironmentVariables["QUERY_STRING"] = request.Url.Query.TrimStart('?');
+
+                using (System.Diagnostics.Process process = System.Diagnostics.Process.Start(psi))
+                {
+                    string output = process.StandardOutput.ReadToEnd();
+                    string error = process.StandardError.ReadToEnd();
+                    process.WaitForExit();
+
+                    if (!string.IsNullOrEmpty(error))
+                    {
+                        LogHttpServer(string.Format("PHP错误：{0}", error));
+                    }
+
+                    byte[] buffer = Encoding.UTF8.GetBytes(output);
+                    response.ContentType = "text/html; charset=utf-8";
+                    response.ContentLength64 = buffer.Length;
+                    response.StatusCode = 200;
+                    response.OutputStream.Write(buffer, 0, buffer.Length);
+                    LogHttpServer(string.Format("{0} {1} - 200 (PHP: {2} bytes)", request.HttpMethod, request.Url.AbsolutePath, buffer.Length));
+                }
+            }
+            catch (Exception ex)
+            {
+                response.StatusCode = 500;
+                byte[] buffer = Encoding.UTF8.GetBytes(string.Format("<html><body><h1>500 - PHP执行错误</h1><p>{0}</p></body></html>", ex.Message));
+                response.ContentLength64 = buffer.Length;
+                response.OutputStream.Write(buffer, 0, buffer.Length);
+                LogHttpServer(string.Format("PHP执行错误：{0}", ex.Message));
+            }
         }
         #endregion
 
